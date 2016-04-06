@@ -1,15 +1,15 @@
 # Vaadin GWT Polymer Elements Framework ++
 
- [GWT Polymer Demo](http://vaadin.github.io/gwt-polymer-elements/demo/)
- [GWT Polymer Elements](https://vaadin.com/gwt)
- [GWT Polymer Framework](https://github.com/vaadin/gwt-polymer-elements/)
- [GWT Polymer Tutorial](http://www.gwtproject.org/doc/latest/polymer-tutorial/introduction.html)
- [GWT Polymer Javadocs](http://vaadin.github.io/gwt-polymer-elements/api/)
+- [GWT Polymer Demo](http://vaadin.github.io/gwt-polymer-elements/demo/)
+- [GWT Polymer Elements](https://vaadin.com/gwt)
+- [GWT Polymer Framework](https://github.com/vaadin/gwt-polymer-elements/)
+- [GWT Polymer Tutorial](http://www.gwtproject.org/doc/latest/polymer-tutorial/introduction.html)
+- [GWT Polymer Javadocs](http://vaadin.github.io/gwt-polymer-elements/api/)
  
- [Polymer Project Elements Catalog] (https://elements.polymer-project.org/)
- [Polymer Project Developer Guide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview.html)
+- [Polymer Project Elements Catalog] (https://elements.polymer-project.org/)
+- [Polymer Project Developer Guide](https://www.polymer-project.org/1.0/docs/devguide/feature-overview.html)
  
- [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+- [CSS-Tricks guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
  
  
 ++ GWT Maven Eclipse ++   
