@@ -1,0 +1,121 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
+    xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
+	>
+	<ui:style>
+	.container {
+		background-color: #ffffff;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		height: 500px;
+		
+	}
+	</ui:style>	
+	<g:HTMLPanel styleName="{style.container}">
+		<style  is="custom-style">
+		.view {
+			display: flex;
+			flex-direction: column;
+			align-items: left;		
+		}
+		.header {
+			align-self: stretch;
+			flex-grow: 1;
+			--paper-toolbar-background: #005a8c;
+		}
+		.body {
+			align-self: stretch;
+			flex-grow: 25;
+			height: 388px;
+		}
+		.footer {
+			align-self: stretch;
+			flex-grow: 1;
+		}
+		.footer paper-toolbar {
+			--paper-toolbar-background: #005a8c;
+		}
+		.footer div {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;			
+		}
+		.textbox {
+			flex: 1;
+		}
+        .view paper-scroll-header-panel {
+            @apply(--layout-fit);
+            @apply(--layout-vertical);
+            @apply(--paper-font-common-base);
+            margin-top: 50px;
+        }
+        .view iron-list {
+            background-color: var(--paper-grey-200, #eee);
+            padding-bottom: 16px;
+        }
+        .view .patient {
+            @apply(--layout-horizontal);
+            margin: 16px 16px 0 16px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+        .view .avatar {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            box-sizing: border-box;
+            background-color: #DDD;
+        }
+        .view .pad {
+            padding: 0 16px;
+ 			@apply(--layout-flex);
+            @apply(--layout-vertical);
+         }
+        .view .primary {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .view .secondary {
+            font-size: 14px;
+        }
+        .view .dim {
+            color: gray;
+        }
+        </style>
+		
+		<div class="view">
+			<p:PaperToolbar class="header">
+	            <p:PaperInput   type="search" class="textbox" label="Search patient name or MRN"></p:PaperInput>
+	            <p:PaperIconButton icon="search" ui:field="search"/>
+	        </p:PaperToolbar>
+			<i:IronList ui:field="list" as="patient" styleName="body">
+				<template>
+					<div>
+	                    <div class="patient">
+	                        <img class="avatar" src="[[patient.avatar]]"/>
+	                        <div class="pad">
+	                            <div class="primary">[[patient.lastName]], [[patient.firstName]] ([[patient.gender]]/[[patient.age]])</div>
+	                            <div class="secondary"><b>MRN:</b>[[patient.primaryId]] <b>DOB:</b>[[patient.dob]]</div>
+		                            <div class="secondary dim">[[item.longText]]</div>
+	                        </div>
+	                    </div>
+                    </div>
+	            </template>
+			</i:IronList>			
+			<div class="footer">
+				<p:PaperToolbar>
+					<p:PaperIconButton ui:field="navPatientActive" src="images/navPatientActive.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
+		        </p:PaperToolbar>
+			</div>	        
+        </div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

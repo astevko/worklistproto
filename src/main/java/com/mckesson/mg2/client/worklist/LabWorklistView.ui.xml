@@ -1,0 +1,109 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
+    xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
+	>
+	<ui:style>
+	/* Add CSS here. See the GWT docs on UI Binder for more details */
+	</ui:style>
+	<g:HTMLPanel addStyleNames="lab-worklist-view">
+        <style is="custom-style">
+			.view {
+				display: flex;
+				flex-direction: column;
+				align-items: left;		
+			}
+			.header {
+				align-self: stretch;
+				flex-grow: 1;
+				--paper-toolbar-background: #005a8c;
+			}
+			.body {
+				align-self: stretch;
+				flex-grow: 25;
+				height: 388px;
+			}
+			.footer {
+				align-self: stretch;
+				flex-grow: 1;
+			}
+                   
+            .lab-worklist-view paper-header-panel {
+                width: 100%;
+                height: 388px;
+                @apply(--shadow-elevation-2dp);
+            }
+
+            .lab-worklist-view .paper-header {
+                height: 60px;
+                font-size: 16px;
+                line-height: 60px;
+                padding: 0 10px;
+                color: white;
+                transition: height 0.2s;
+            }
+
+            .lab-worklist-view .content {
+                height: 2000px;
+            }
+
+            .lab-worklist-view .cover {
+                margin: 60px;
+            }
+
+            .lab-worklist-view .blue .paper-header {
+                background-color: #005a8c;
+            }
+            .lab-worklist-view .orange .paper-header {
+                background-color: #ef8200;
+            }
+            .lab-worklist-view .green .paper-header {
+                background-color: #5a8e22;
+            }
+
+        </style>
+        <div class="view">
+            <p:PaperHeaderPanel addStyleNames="blue">
+                <div class="paper-header">Worklist</div>
+			       <p:PaperTabs selected="0" scrollable="true">
+			            <p:PaperTab>Lab Results</p:PaperTab>
+			            <p:PaperTab>Sign Orders</p:PaperTab>
+			            <p:PaperTab>Imaging</p:PaperTab>
+			            <p:PaperTab>Review Notes</p:PaperTab>
+			            <p:PaperTab>Other Documents</p:PaperTab>
+			            <p:PaperTab>eRx</p:PaperTab>
+			        </p:PaperTabs>
+            </p:PaperHeaderPanel>
+			<i:IronList ui:field="list" as="lab" styleName="body">
+				<template>
+					<div>
+	                    <div class="patient">
+	                        <img class="avatar" src="[[lab.avatar]]"/>
+	                        <div class="pad">
+	                            <div class="primary">[[lab.patientDisplayString]]</div>
+	                            <div class="secondary">[[lab.resultName]]</div>
+		                        <div class="secondary dim">[[lab.reviewStatus]]</div>
+	                        </div>
+	                    </div>
+                    </div>
+	            </template>
+			</i:IronList>	            
+			<div class="footer">
+				<p:PaperToolbar>
+					<p:PaperIconButton active='true' ui:field="navPatientActive" src="images/navPatientActive.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
+					<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
+		        </p:PaperToolbar>
+			</div>	        
+       </div>	
+		<!-- Add GWT widgets here. Enter < and hit Ctrl-Space to auto-complete 
+			widget names. The ui:field attribute binds an element to a field in the owner 
+			class. See the GWT docs on UI Binder for more details. -->
+			<i:IronSwipeableContainer ui:field='swipeable'>
+				<img src="specs/WorklistView.png"/>
+			</i:IronSwipeableContainer>
+	</g:HTMLPanel>
+</ui:UiBinder> 
