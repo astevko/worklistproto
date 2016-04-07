@@ -1,0 +1,30 @@
+<assembly>
+  <id>clientcode</id>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <fileSets>
+  	<fileSet>
+  		<directory>target/WorklistProto-0.1-SNAPSHOT</directory>
+  		<includes>
+ 			<include>**/*.js</include>
+  			<include>**/*.png</include>
+ 			<include>**/*.rpc</include>
+ 			<include>**/*.html</include>
+ 			<include>**/*.gif</include>
+ 			<include>**/*.xml</include>
+ 			<include>**/*.jpg</include>
+ 			<include>**/*.jpeg</include>
+ 			<include>**/*.css</include>
+ 			<include>**/*.txt</include>
+ 			<include>**/.pgomit</include>
+ 			<include>**/*.rb</include>
+ 		</includes>
+ 		<excludes>
+ 			<exclude>WEB-INF/**/*</exclude>
+ 		</excludes>
+  		<outputDirectory></outputDirectory>
+  	</fileSet>
+  </fileSets>
+</assembly>

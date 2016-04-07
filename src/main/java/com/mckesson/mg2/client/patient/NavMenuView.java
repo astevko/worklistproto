@@ -7,7 +7,9 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mckesson.mg2.client.utils.MG2Log;
@@ -25,6 +27,9 @@ abstract public class NavMenuView extends Composite {
     static final MG2Log log = new MG2Log(NavMenuView.class);
     
     @UiField
+    public HTMLPanel view;
+    
+    @UiField
     public PaperIconButton navPatientActive;
     @UiField
     public PaperIconButton navWorklist;
@@ -34,11 +39,17 @@ abstract public class NavMenuView extends Composite {
     public PaperIconButton navCalendar;
     @UiField
     public PaperIconButton navHamburgerMenu;
-
-    /**
-     * 
+    
+    /* (non-Javadoc)
+     * @see com.google.gwt.user.client.ui.Composite#initWidget(com.google.gwt.user.client.ui.Widget)
      */
-    public NavMenuView() {
+    @Override
+    protected void initWidget(Widget widget) {
+        super.initWidget(widget);
+    
+        // cheap substitute for height: 100%
+        view.setHeight(Window.getClientHeight() + "px");
+        
         //  main menu patient search
         navPatientActive.addClickHandler(new ClickHandler() {
             
@@ -69,6 +80,7 @@ abstract public class NavMenuView extends Composite {
             }
         });
         // main menu hamburger    
+        
     }
     
     /**

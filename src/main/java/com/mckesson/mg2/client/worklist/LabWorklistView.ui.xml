@@ -7,7 +7,7 @@
 	<ui:style>
 	/* Add CSS here. See the GWT docs on UI Binder for more details */
 	</ui:style>
-	<g:HTMLPanel addStyleNames="lab-worklist-view">
+	<g:HTMLPanel ui:field="view" addStyleNames="lab-worklist-view">
         <style is="custom-style">
 			.view {
 				display: flex;
@@ -31,7 +31,6 @@
                    
             .lab-worklist-view paper-header-panel {
                 width: 100%;
-                height: 388px;
                 @apply(--shadow-elevation-2dp);
             }
 
@@ -63,7 +62,7 @@
             }
 
         </style>
-        <div class="view">
+        <div class="lab-worklist-view">
             <p:PaperHeaderPanel addStyleNames="blue">
                 <div class="paper-header">Worklist</div>
 			       <p:PaperTabs selected="0" scrollable="true">

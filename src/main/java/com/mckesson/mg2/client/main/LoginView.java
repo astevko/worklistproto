@@ -9,6 +9,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -32,12 +33,14 @@ public class LoginView extends Composite {
     interface Style extends CssResource {
         String view();
     }
-    @UiField Style loginStyle;
-    @UiField HTMLPanel container; 
+    @UiField HTMLPanel view; 
     @UiField PaperButton loginButton;
     
     public LoginView() {
-        initWidget(uiBinder.createAndBindUi(this));        
+        initWidget(uiBinder.createAndBindUi(this));
+        // cheap substitute for height: 100%
+        view.setHeight(Window.getClientHeight() + "px");        
+        
         loginButton.addClickHandler(new ClickHandler() {
             
             public void onClick(ClickEvent event) {

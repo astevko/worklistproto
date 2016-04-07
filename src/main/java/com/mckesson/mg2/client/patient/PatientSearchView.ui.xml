@@ -4,36 +4,30 @@
 	xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
     xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
 	>
-	<ui:style>
-	.container {
-		background-color: #ffffff;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		height: 500px;
-		
-	}
-	</ui:style>	
-	<g:HTMLPanel styleName="{style.container}">
+	<g:HTMLPanel ui:field="view" styleName="view">
 		<style  is="custom-style">
 		.view {
+			background-color: #ffffff;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+					
 			display: flex;
 			flex-direction: column;
-			align-items: left;		
+			align-items: stretch;		
 		}
 		.header {
-			align-self: stretch;
-			flex-grow: 1;
+			align-self: flex-start;
+			flex-grow: 0;
 			--paper-toolbar-background: #005a8c;
 		}
 		.body {
-			align-self: stretch;
-			flex-grow: 25;
-			height: 388px;
+			flex-grow: 1;
 		}
 		.footer {
-			align-self: stretch;
-			flex-grow: 1;
+			--paper-toolbar-background: #005a8c;
+			align-self: flex-end;
+			flex-grow: 0;
 		}
 		.footer paper-toolbar {
 			--paper-toolbar-background: #005a8c;
@@ -88,12 +82,12 @@
         }
         </style>
 		
-		<div class="view">
-			<p:PaperToolbar class="header">
+		<div>
+			<p:PaperToolbar addStyleNames="header">
 	            <p:PaperInput   type="search" class="textbox" label="Search patient name or MRN"></p:PaperInput>
 	            <p:PaperIconButton icon="search" ui:field="search"/>
 	        </p:PaperToolbar>
-			<i:IronList ui:field="list" as="patient" styleName="body">
+			<i:IronList ui:field="list" as="patient" addStyleNames="body">
 				<template>
 					<div>
 	                    <div class="patient">
@@ -107,15 +101,13 @@
                     </div>
 	            </template>
 			</i:IronList>			
-			<div class="footer">
-				<p:PaperToolbar>
-					<p:PaperIconButton ui:field="navPatientActive" src="images/navPatientActive.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
-		        </p:PaperToolbar>
-			</div>	        
+			<p:PaperToolbar addStyleNames="footer">
+				<p:PaperIconButton ui:field="navPatientActive" src="images/navPatientActive.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
+				<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
+				<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
+				<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
+				<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
+	        </p:PaperToolbar>
         </div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

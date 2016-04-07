@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<widget xmlns = "http://www.w3.org/ns/widgets"
+		xmlns:gap = "http://phonegap.com/ns/1.0"
+		xmlns:android   = "http://schemas.android.com/apk/res/android"
+		id        = "com.mckesson.mg2.WorklistProto"		
+		versionCode="3"
+		version   = "0.0.1" >
+		<name>Worklist Prototype</name>
+		<description>
+iKnowMed Worklist Prototype</description>
+		<author href="https://msh.mckesson.com/ehr/app.jsp" email="andy.stevko@mckesson.com">
+Andrew Stevko
+		</author>
+		<preference name='phonegap-version' value='cli-5.2.0' />
+		<preference name="orientation" value="portrait" />
+		<preference name="fullscreen" value="true" />
+		<preference name="target-device" value="handset" />
+		<preference name="webviewbounce" value="false" />
+		<preference name="prerendered-icon" value="true" />
+		<preference name="stay-in-webview" value="true" />
+		<preference name="ios-statusbarstyle" value="default" />
+		<preference name="detect-data-types" value="true" />
+		<preference name="exit-on-suspend" value="true" />
+		<preference name="show-splash-screen-spinner" value="true" />
+		<preference name="auto-hide-splash-screen" value="true" />
+		<preference name="EnableViewportScale" value="true" />
+		<preference name="MediaPlaybackRequiresUserAction" value="true" />
+		<preference name="AllowInlineMediaPlayback" value="true" />
+		<preference name="BackupWebStorage" value="none" />
+		<preference name="TopActivityIndicator" value="gray" />
+		<preference name="KeyboardDisplayRequiresUserAction" value="true" />
+		<preference name="HideKeyboardFormAccessoryBar" value="true" />
+		<preference name="SuppressesIncrementalRendering" value="true" />
+		<preference name="android-minSdkVersion" value="15" />
+		<preference name="android-targetSdkVersion" value="20" />
+		<preference name="android-installLocation" value="internalOnly" />
+		<preference name="SplashScreenDelay" value="3000" />
+		<preference name="ErrorUrl" value=""/>
+		<preference name="KeepRunning" value="false"/>
+		<preference name="DisallowOverscroll" value="true"/>
+		<preference name="LoadingDialog" value=","/> 
+		<preference name="LoadUrlTimeoutValue" value="20000" />
+		<preference name="disable-cursor" value="true" />
+		<!-- https://github.com/apache/cordova-plugin-camera 
+			cordova plugin add cordova-plugin-camera
+		-->
+		<preference name="CameraUsesGeolocation" value="false" />
+		
+		
+		<gap:platform name="ios" />
+		<gap:platform name="android" />
+		
+		<feature name="http://api.phonegap.com/1.0/camera"/>
+		<feature name="http://api.phonegap.com/1.0/geolocation"/>
+		<feature name="http://api.phonegap.com/1.0/network"/>
+		
+		<plugin name="org.apache.cordova.camera"  source="npm"   />
+		<plugin name="org.apache.cordova.console" source="npm"   />
+		<plugin name="org.apache.cordova.device"  source="npm"   />
+		<plugin name="org.apache.cordova.geolocation"  source="npm"   />
+		<plugin name="org.apache.cordova.inappbrowser"  source="npm"   />
+		<plugin name="org.apache.cordova.network-information"  source="npm"   />
+		<plugin name="org.apache.cordova.splashscreen"  source="npm"   />
+		<plugin name="cordova-plugin-whitelist" source="npm" /> <!-- spec="1.2.0" -->
+		
+		<icon src="res/ios/app-icon57.png" gap:platform="ios" width="57" height="57" />
+		<icon src="res/ios/app-icon76.png" gap:platform="ios" width="72" height="72" />
+		<icon src="res/ios/app-icon57x2.png" gap:platform="ios" width="114" height="114" />
+		<icon src="res/ios/app-icon76x2.png" gap:platform="ios" width="144" height="144" />
+		<icon src="res/ios/app-icon76.png" gap:platform="ios" width="76" height="76" />
+		<icon src="res/ios/app-icon60x2.png" gap:platform="ios" width="120" height="120" />
+		<icon src="res/ios/app-icon76x2.png" gap:platform="ios" width="152" height="152" />
+		
+		<icon src="res/android/app-icon36.png" gap:platform="android" gap:density="ldpi" />
+		<icon src="res/android/app-icon48.png" gap:platform="android" gap:density="mdpi" />
+		<icon src="res/android/app-icon72.png" gap:platform="android" gap:density="hdpi" />
+		<icon src="res/android/app-icon96.png" gap:platform="android" gap:density="xhdpi" />
+		<icon src="res/android/app-icon144.png" gap:platform="android" gap:density="xxhdpi" />
+		<icon src="res/android/app-icon192.png" gap:platform="android" gap:density="xxxhdpi" />
+		
+		<icon src="icon.png" />
+		
+		<gap:splash src="res/ios/LaunchImage480.png" gap:platform="ios" width="320" height="480" />
+		<gap:splash src="res/ios/LaunchImage960.png" gap:platform="ios" width="640" height="960" />
+		<gap:splash src="res/ios/LaunchImage1136.png" gap:platform="ios" width="640" height="1136" />
+		<gap:splash src="res/ios/LaunchImage750x1334.png" gap:platform="ios" width="768" height="1024 " />
+		
+		<gap:splash src="res/android/LaunchImage480.png" gap:platform="android" gap:density="mdpi" />
+		
+		<gap:splash src="splash.png" />
+		
+		<!-- see https://github.com/apache/cordova-plugin-whitelist -->
+		<access origin="http://localhost:8080" />	<!-- SDM -->
+		<access origin="http://*.corp.mckesson.com:8080" subdomains="true"  />
+		<access origin="http://*.dev.iknowmed.com" subdomains="true"  />
+		<access origin="https://*.mckesson.com" subdomains="true"  />
+		<access origin="*.google-analytics.com" subdomains="true"  />
+		<allow-intent href="tel:*" />
+		<allow-intent href="mailto:*" />
+		
+		<!-- <platform name="ios">
+			<hook type="after_platform_add" src="res/ios/fix-xcodescheme.rb" />
+		</platform> -->
+		
+		<!--  as per http://docs.build.phonegap.com/en_US/configuring_config_file_element.md.html#Config%20File%20Elements -->
+		<!-- update iOS Property List directly
+		<config-file target="*-Info.plist" parent="CFBundleURLTypes">
+		    <array>
+		        <dict>
+		            <key>PackageName</key>
+		            <string>$PACKAGE_NAME</string>
+		        </dict>
+		    </array>
+		</config-file>		
+		<gap:config-file platform="ios" parent="UISupportedInterfaceOrientations" mode="replace">
+		    <array>
+		        <string>UIInterfaceOrientationLandscapeOmg</string>
+		    </array>
+		</gap:config-file>
+ 		-->
+ 		
+		<!--  update AndroidManifest.xml directly
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+		    <activity android:name="com.foo.Foo" android:label="@string/app_name">
+		        <intent-filter>
+		        </intent-filter>
+		    </activity>
+		</config-file>
+		<gap:config-file platform="android" parent="/manifest" mode="merge">
+		    <supports-screens 
+		        android:xlargeScreens="false" 
+		        android:largeScreens="false" 
+		        android:smallScreens="false" />
+			<application 
+				android:allowBackup="false"
+				android:debuggable="false"
+				/>
+		</gap:config-file>
+		 -->
+
+	</widget>
