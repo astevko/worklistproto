@@ -356,8 +356,8 @@ function worklistproto(){
     }
     var strongName;
     try {
-      unflattenKeylistIntoAnswers(['no'], '32A5695D532328CBAA7081C4DCA1CD79');
-      unflattenKeylistIntoAnswers(['yes'], '95F6164B28205CFF5A79F4314AC8FEEC');
+      unflattenKeylistIntoAnswers(['no'], '04B62EC8120D7F2BBADAA5994A69C2B5');
+      unflattenKeylistIntoAnswers(['yes'], 'A8A99ADF03645E2FD43DFC57923DBCD4');
       strongName = answers[computePropValue('phonegap.env')];
       var idx = strongName.indexOf(':');
       if (idx != -1) {
@@ -375,18 +375,7 @@ function worklistproto(){
     if (!$wnd_0.__gwt_stylesLoaded) {
       $wnd_0.__gwt_stylesLoaded = {};
     }
-    function installOneStylesheet(stylesheetUrl){
-      if (!__gwt_stylesLoaded[stylesheetUrl]) {
-        var l = $doc_0.createElement('link');
-        l.setAttribute('rel', 'stylesheet');
-        l.setAttribute('href', computeUrlForResource(stylesheetUrl));
-        $doc_0.getElementsByTagName('head')[0].appendChild(l);
-        __gwt_stylesLoaded[stylesheetUrl] = true;
-      }
-    }
-
     sendStats('loadExternalRefs', 'begin');
-    installOneStylesheet('gwt/clean/clean.css');
     sendStats('loadExternalRefs', 'end');
   }
 
