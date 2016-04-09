@@ -356,8 +356,8 @@ function worklistproto(){
     }
     var strongName;
     try {
-      unflattenKeylistIntoAnswers(['no'], '04B62EC8120D7F2BBADAA5994A69C2B5');
-      unflattenKeylistIntoAnswers(['yes'], 'A8A99ADF03645E2FD43DFC57923DBCD4');
+      unflattenKeylistIntoAnswers(['no'], 'B455B68CD58F804C0EDB30328BC77D37');
+      unflattenKeylistIntoAnswers(['yes'], 'DB9C8A29CFCB6700B112C08D91FE0D39');
       strongName = answers[computePropValue('phonegap.env')];
       var idx = strongName.indexOf(':');
       if (idx != -1) {
