@@ -126,25 +126,16 @@
  		
         </style>        
     	<div class="header">Worklist</div>
-<!--   	    <p:PaperTabs selected="0" scrollable="true" addStyleNames="header" name="labworklist-tabs" >
-            <p:PaperTab ui:field="tabLabResults">Lab Results</p:PaperTab>
-            <p:PaperTab ui:field="tabSignOrders">Sign Orders</p:PaperTab>
-            <p:PaperTab ui:field="tabImaging">Imaging</p:PaperTab>
-            <p:PaperTab ui:field="tabReviewNotes">Review Notes</p:PaperTab>
-            <p:PaperTab ui:field="tabOtherDocuments">Other Documents</p:PaperTab>
-            <p:PaperTab ui:field="tabERX">eRx</p:PaperTab>
-       </p:PaperTabs>       
- -->	
  		<div class="tabs_outer">
  			<div class="overlayLeft">&nbsp;</div>
  			<div class="overlayRight">&nbsp;</div>
 	 		<div class="tabs">
-	 			<span class="tab tab_selected">Lab Results</span>
-	 			<span class="tab">Sign Orders</span>
-	 			<span class="tab">Imaging</span>
-	 			<span class="tab">Review Notes</span>
-	 			<span class="tab">Other Documents</span>
-	 			<span class="tab">eRx</span>
+	 			<g:InlineHTML ui:field="tabLabResults" addStyleNames="tab tab_selected">Lab Results</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabSignOrders"  addStyleNames="tab">Sign Orders</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabImaging"  addStyleNames="tab">Imaging</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabReviewNotes"  addStyleNames="tab">Review Notes</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabOtherDocuments"  addStyleNames="tab">Other Documents</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabERX"  addStyleNames="tab">eRx</g:InlineHTML>
 	 		</div>
  		</div>	
  		<i:IronList ui:field="list" as="item" addStyleNames="mid"  name="labworklist-mid" >
@@ -157,12 +148,13 @@
 		                           <div class="secondary">[[item.resultName]]</div>
 		                        <div class="secondary dim">[[item.reviewStatus]]</div>
 		                       </div>
+		                       <iron-icon icon="chevron-right"></iron-icon>
 		                   </div>
 	                  </div>
 		           </template>
 			</i:IronList>	            
  		<p:PaperToolbar  addStyleNames="footer"  name="labworklist-foot" >
-			<p:PaperIconButton ui:field="navPatientActive" src="images/navPatientActive.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
+			<p:PaperIconButton ui:field="navPatient" src="images/navPatient.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
