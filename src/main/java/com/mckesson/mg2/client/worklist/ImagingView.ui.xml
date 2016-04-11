@@ -4,8 +4,9 @@
 	xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
     xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
 	>
+	
 	<g:HTMLPanel ui:field="view" styleName="view">
-		<style  is="custom-style">
+        <style is="custom-style" include="iron-flex iron-flex-alignment">
 		.view {
 			background-color: #ffffff;
 			width: 100%;
@@ -18,27 +19,48 @@
 			align-items: stretch;		
 		}
 		.header {
-			--paper-toolbar-background: #005a8c;
-			flex: 0 1 auto;
+			color: white;		
+			background-color: #005a8c;	
+			padding: 0.5em;
+			flex: 2 0 auto;
+			height: 1.5em;
 		}
 		.mid {
-			flex: 1 1 auto;
+			flex: auto;
 		}
 		.footer {
 			--paper-toolbar-background: #005a8c;
-			flex: 0 1 auto;
 		}
-		.footer paper-toolbar {
-			--paper-toolbar-background: #005a8c;
+		.tabs_outer {
+			width: 100%;
+			overflow-x: scroll;
+			flex: 4 0 auto;
+			height: 2.5em;
+
+		    background: #005a8c;
+		    color: white;
+		    font-family: verdana;
+		    font-size: 0.8em;
+		    border-top: 1px solid #3078A2;			
 		}
-		.footer #topBar {
-			@apply(--layout-fit);
-			@apply(--layout-horizontal);
-			justify-content: space-between;			
+		.tabs {
+			overflow: hidden;
+			width: 150%;
+		
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
 		}
-		/* header */
-		.textbox {
-			flex: 1;
+		.tab {
+			margin: 0.5em;
+			flex-grow: 0;
+			white-space: nowrap;
+		}
+		.tab_selected {
+			font-weight: bold;
+			text-decoration: underline;
+			
 		}
 		/* list */
         iron-list {
@@ -75,32 +97,39 @@
         .mid .dim {
             color: gray;
         }
-        </style>
-		
-		<p:PaperToolbar addStyleNames="header">
-            <p:PaperInput   type="search" class="textbox" label="Search patient name or MRN"></p:PaperInput>
-            <p:PaperIconButton icon="search" ui:field="search"/>
-        </p:PaperToolbar>
-		<i:IronList ui:field="list" as="item" addStyleNames="mid">
+ 		
+        </style>        
+    	<div class="header">Worklist</div>
+ 		<div class="tabs_outer">
+	 		<div class="tabs">
+	 			<g:InlineHTML ui:field="tabLabResults" addStyleNames="tab">Lab Results</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabSignOrders"  addStyleNames="tab">Sign Orders</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabImaging"  addStyleNames="tab tab_selected">Imaging</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabReviewNotes"  addStyleNames="tab">Review Notes</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabOtherDocuments"  addStyleNames="tab">Other Documents</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabERX"  addStyleNames="tab">eRx</g:InlineHTML>
+	 		</div>
+ 		</div>	
+ 		<i:IronList ui:field="list" as="item" addStyleNames="mid"  name="labworklist-mid" >
 			<template>
 				<div>
                     <div class="item">
-                        <img class="avatar" src="[[item.avatar]]"/>
-                        <div class="pad">
-                            <div class="primary">[[item.lastName]], [[item.firstName]] ([[item.gender]]/[[item.age]])</div>
-                            <div class="secondary"><b>MRN:</b>[[item.primaryId]] <b>DOB:</b>[[item.dob]]</div>
-	                            <div class="secondary dim">[[item.longText]]</div>
-                        </div>
-                    </div>
-                   </div>
-            </template>
-		</i:IronList>			
-		<p:PaperToolbar addStyleNames="footer">
+		                       <img class="avatar" src="[[item.avatar]]"/>
+		                       <div class="pad">
+		                           <div class="primary">[[item.patientDisplayString]]</div>
+		                           <div class="secondary">[[item.resultName]]</div>
+		                        <div class="secondary dim">[[item.reviewStatus]]</div>
+		                       </div>
+		                   </div>
+	                  </div>
+		           </template>
+			</i:IronList>	            
+ 		<p:PaperToolbar  addStyleNames="footer"  name="labworklist-foot" >
 			<p:PaperIconButton ui:field="navPatient" src="images/navPatient.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
         </p:PaperToolbar>
-	</g:HTMLPanel>
+ 	</g:HTMLPanel>
 </ui:UiBinder> 

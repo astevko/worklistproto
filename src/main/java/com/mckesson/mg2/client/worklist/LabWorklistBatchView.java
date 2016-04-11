@@ -15,16 +15,16 @@ import com.vaadin.polymer.iron.widget.IronList;
  * @author efdj6eb
  *
  */
-public class LabWorklistView extends WorklistView {
+public class LabWorklistBatchView extends WorklistView {
 
     /**
      * logger 
      */
-    private static final MG2Log log = new MG2Log(LabWorklistView.class);
+    private static final MG2Log log = new MG2Log(LabWorklistBatchView.class);
     
     private LabWorklistViewUiBinder uiBinder = GWT.create(LabWorklistViewUiBinder.class);
 
-    interface LabWorklistViewUiBinder extends UiBinder<Widget, LabWorklistView> {
+    interface LabWorklistViewUiBinder extends UiBinder<Widget, LabWorklistBatchView> {
     }
     
     /**
@@ -44,7 +44,7 @@ public class LabWorklistView extends WorklistView {
      * Note that depending on the widget that is used, it may be necessary to
      * implement HasHTML instead of HasText.
      */
-    public LabWorklistView() {
+    public LabWorklistBatchView() {
         initWidget(uiBinder.createAndBindUi(this));
         log.info("LabWorklistView()");
      }

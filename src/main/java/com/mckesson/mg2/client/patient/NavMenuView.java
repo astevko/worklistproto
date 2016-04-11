@@ -29,7 +29,7 @@ abstract public class NavMenuView extends Composite {
     public HTMLPanel view;
 
     @UiField
-    public PaperIconButton navPatientActive;
+    public PaperIconButton navPatient;
     @UiField
     public PaperIconButton navWorklist;
     @UiField
@@ -83,7 +83,7 @@ abstract public class NavMenuView extends Composite {
         view.setHeight(Window.getClientHeight() + "px");
 
         // main menu patient search
-        navPatientActive.addClickHandler(new ClickHandler() {
+        navPatient.addClickHandler(new ClickHandler() {
 
             @Override
             public void onClick(final ClickEvent event) {

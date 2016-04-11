@@ -6,12 +6,14 @@ package com.mckesson.mg2.client.worklist;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.TouchEndEvent;
+import com.google.gwt.event.dom.client.TouchEndHandler;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.InlineHTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mckesson.mg2.client.patient.NavMenuView;
 import com.mckesson.mg2.client.utils.MG2Log;
-import com.vaadin.polymer.paper.widget.PaperTab;
 
 /**
  * container for handling worklist menu selections
@@ -27,42 +29,48 @@ public abstract class WorklistView extends NavMenuView {
     static final MG2Log log = new MG2Log(WorklistView.class);
     
     
-    @UiField public PaperTab tabLabResults;
-    @UiField public PaperTab tabSignOrders;
-    @UiField public PaperTab tabImaging;
-    @UiField public PaperTab tabReviewNotes;
-    @UiField public PaperTab tabOtherDocuments;
-    @UiField public PaperTab tabERX;
+    @UiField public InlineHTML tabLabResults;
+    @UiField public InlineHTML tabSignOrders;
+    @UiField public InlineHTML tabImaging;
+    @UiField public InlineHTML tabReviewNotes;
+    @UiField public InlineHTML tabOtherDocuments;
+    @UiField public InlineHTML tabERX;
     
     protected void gotoLabWorklistView() {
         log.info("gotoLabWorklistView()");
         // clicked tab
+        clear();
         RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
     }
     protected void gotoSignOrdersView() {
         log.info("gotoSignOrdersView()");
         // clicked tab
-        RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
+        clear();
+        RootPanel.get().add((Widget) GWT.create(SignOrdersView.class));        
     }
     protected void gotoImagingView() {
         log.info("gotoImagingView()");
         // clicked tab
-        RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
+        clear();
+        RootPanel.get().add((Widget) GWT.create(ImagingView.class));        
     }
     protected void gotoReviewNotesView() {
         log.info("gotoReviewNotesView()");
         // clicked tab
-        RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
+        clear();
+        RootPanel.get().add((Widget) GWT.create(ReviewNotesView.class));        
     }
     protected void gotoOtherDocumentsView() {
         log.info("gotoOtherDocumentsView()");
         // clicked tab
-        RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
+        clear();
+        RootPanel.get().add((Widget) GWT.create(OtherDocumentsView.class));        
     }
     protected void gotoERXView() {
         log.info("gotoERXView()");
         // clicked tab
-        RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
+        clear();
+        RootPanel.get().add((Widget) GWT.create(ERXView.class));        
     }
     /*
      * (non-Javadoc)
@@ -80,6 +88,14 @@ public abstract class WorklistView extends NavMenuView {
                 gotoLabWorklistView();
             }
         });
+        tabLabResults.addTouchEndHandler(new TouchEndHandler() {
+            
+            @Override
+            public void onTouchEnd(TouchEndEvent event) {
+                gotoLabWorklistView();                
+            }
+        });
+        
         // tab
         tabSignOrders.addClickHandler(new ClickHandler() {
 
@@ -88,6 +104,14 @@ public abstract class WorklistView extends NavMenuView {
                 gotoSignOrdersView();
             }
         });
+        tabSignOrders.addTouchEndHandler(new TouchEndHandler() {
+            
+            @Override
+            public void onTouchEnd(TouchEndEvent event) {
+                gotoSignOrdersView();
+            }
+        });
+        
         // tab
         tabImaging.addClickHandler(new ClickHandler() {
 
