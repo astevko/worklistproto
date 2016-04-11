@@ -35,11 +35,16 @@
 			width: 100%;
 			overflow-x: scroll;
 			flex: 4 0 auto;
-			height: 2em;
+			height: 2.5em;
+
+		    background: #005a8c;
+		    color: white;
+		    font-family: verdana;
+		    font-size: 0.8em;
+		    border-top: 1px solid #3078A2;			
 		}
 		.tabs {
 			overflow: hidden;
-			height: 1.5em;
 			width: 150%;
 		
 			display: flex;
@@ -50,6 +55,7 @@
 		.tab {
 			margin: 0.5em;
 			flex-grow: 0;
+			white-space: nowrap;
 		}
 		.tab_selected {
 			font-weight: bold;
