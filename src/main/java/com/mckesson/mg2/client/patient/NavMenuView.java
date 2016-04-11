@@ -18,17 +18,16 @@ import com.vaadin.polymer.paper.widget.PaperIconButton;
 
 /**
  * @author efdj6eb
- *
  */
 abstract public class NavMenuView extends Composite {
     /**
-     * logger 
+     * logger
      */
     static final MG2Log log = new MG2Log(NavMenuView.class);
-    
+
     @UiField
     public HTMLPanel view;
-    
+
     @UiField
     public PaperIconButton navPatientActive;
     @UiField
@@ -39,87 +38,85 @@ abstract public class NavMenuView extends Composite {
     public PaperIconButton navCalendar;
     @UiField
     public PaperIconButton navHamburgerMenu;
-    
-    /* (non-Javadoc)
-     * @see com.google.gwt.user.client.ui.Composite#initWidget(com.google.gwt.user.client.ui.Widget)
-     */
-    @Override
-    protected void initWidget(Widget widget) {
-        super.initWidget(widget);
-    
-        // cheap substitute for height: 100%
-        view.setHeight(Window.getClientHeight() + "px");
-        
-        //  main menu patient search
-        navPatientActive.addClickHandler(new ClickHandler() {
-            
-            public void onClick(ClickEvent event) {
-                gotoPatientSearchView();                
-            }
-        }); 
-        // main menu lab worklist
-        navWorklist.addClickHandler(new ClickHandler() {
-            
-            public void onClick(ClickEvent event) {
-                gotoWorklistView();
-            }
-        });
-        // main menu message
-        navMessage.addClickHandler(new ClickHandler() {
-            
-            public void onClick(ClickEvent event) {
-                gotoMessageView();
-                
-            }
-        });
-        // main menu calendar
-        navCalendar.addClickHandler(new ClickHandler() {
-            
-            public void onClick(ClickEvent event) {
-                      gotoCalendarView();  
-            }
-        });
-        // main menu hamburger    
-        
-    }
-    
-    /**
-     * 
-     */
-    protected void gotoCalendarView() {
-        log.info("gotoCalendarView()");
-        clear();
-        // clicked search button forces search view reset        
-        RootPanel.get().add((Widget) GWT.create(CalendarView.class));
-        
-    }
-
-    /**
-     * 
-     */
-    protected void gotoMessageView() {
-        log.info("gotoMessageView()");
-        clear();
-        // clicked search button forces search view reset        
-        RootPanel.get().add((Widget) GWT.create(MessageView.class));
-    }
 
     protected void clear() {
         RootPanel.get().clear();
     }
 
+    protected void gotoCalendarView() {
+        log.info("gotoCalendarView()");
+        clear();
+        // clicked search button forces search view reset
+        RootPanel.get().add((Widget) GWT.create(CalendarView.class));
+    }
+
+    protected void gotoMessageView() {
+        log.info("gotoMessageView()");
+        clear();
+        // clicked search button forces search view reset
+        RootPanel.get().add((Widget) GWT.create(MessageView.class));
+    }
+
     protected void gotoPatientSearchView() {
         log.info("gotoPatientSearchView()");
-       clear();
-        // clicked search button forces search view reset        
+        clear();
+        // clicked search button forces search view reset
         RootPanel.get().add((Widget) GWT.create(PatientSearchView.class));
     }
 
     protected void gotoWorklistView() {
         log.info("gotoWorklistView()");
         clear();
-        // clicked search button forces search view reset        
+        // clicked search button forces search view reset
         RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see com.google.gwt.user.client.ui.Composite#initWidget(com.google.gwt.user.client.ui.Widget)
+     */
+    @Override
+    protected void initWidget(final Widget widget) {
+        super.initWidget(widget);
+
+        // cheap substitute for height: 100%
+        view.setHeight(Window.getClientHeight() + "px");
+
+        // main menu patient search
+        navPatientActive.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(final ClickEvent event) {
+                gotoPatientSearchView();
+            }
+        });
+        // main menu lab worklist
+        navWorklist.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(final ClickEvent event) {
+                gotoWorklistView();
+            }
+        });
+        // main menu message
+        navMessage.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(final ClickEvent event) {
+                gotoMessageView();
+
+            }
+        });
+        // main menu calendar
+        navCalendar.addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(final ClickEvent event) {
+                gotoCalendarView();
+            }
+        });
+        // main menu hamburger
+
     }
 
 }

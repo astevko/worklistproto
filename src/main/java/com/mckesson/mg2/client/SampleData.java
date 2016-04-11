@@ -14,23 +14,251 @@ import com.google.gwt.core.client.JsArray;
 public class SampleData {
     public static class Patient extends JavaScriptObject {
         protected Patient() {
-            
         };
         public final native int id() /*-{
             return this.id;
         }-*/;                
     }
+    
     public static class LabWorklist extends JavaScriptObject {
         protected LabWorklist() {
-            
         };
         public final native int id() /*-{
             return this.id;
         }-*/;                
     }
+    
     public static native JsArray<LabWorklist> getLabWorklists() /*-{
-        return
-        [{
+        console.log('getLabWorklists()');
+        return [{ 
+        "id" : 1,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader1723997",
+        "patEntityId" : 1723997,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 530702,
+        "patName" : "release2/8, Test ",
+        "patGenderAgeDobMrn" : "F/38 - 12/07/1977 - 767888",
+        "patPhone" : null,
+        "dateOfService" : "1423422000000",
+        "dateOfEntry" : "1423388577707",
+        "reviewStatus" : "PENDING",
+        "resultName" : "DOG DANDER (E5) IGE",
+        "resultFlag" : "HIGH",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "release2/8, Test  (F/38 - 12/07/1977 - 767888)",
+        "beanErrors" : null
+    }, {
+        "id" : 2,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2034336",
+        "patEntityId" : 2034336,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 625179,
+        "patName" : "Patch3/22, Test ",
+        "patGenderAgeDobMrn" : "F/36 - 12/01/1979 - 65656",
+        "patPhone" : null,
+        "dateOfService" : "1427010203000",
+        "dateOfEntry" : "1427010220214",
+        "reviewStatus" : "PENDING",
+        "resultName" : "Panel3/22",
+        "resultFlag" : "NORMAL",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "Patch3/22, Test  (F/36 - 12/01/1979 - 65656)",
+        "beanErrors" : null
+    }, {
+        "id" : 3,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2175385",
+        "patEntityId" : 2175385,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 665862,
+        "patName" : "ZZJones, TestMa1 ",
+        "patGenderAgeDobMrn" : "F/50 - 10/19/1965 - zztestma1",
+        "patPhone" : null,
+        "dateOfService" : "1431445271000",
+        "dateOfEntry" : "1431445324070",
+        "reviewStatus" : "PENDING",
+        "resultName" : "INR",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "ZZJones, TestMa1  (F/50 - 10/19/1965 - zztestma1)",
+        "beanErrors" : null
+    }, {
+        "id" : 4,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2166546",
+        "patEntityId" : 2166546,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 661664,
+        "patName" : "pentium, pentium q.",
+        "patGenderAgeDobMrn" : "F/103 - 12/12/1912 - pentium333",
+        "patPhone" : null,
+        "dateOfService" : "1431030311000",
+        "dateOfEntry" : "1431030348618",
+        "reviewStatus" : "PENDING",
+        "resultName" : "CBC w/ Retic",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "pentium, pentium q. (F/103 - 12/12/1912 - pentium333)",
+        "beanErrors" : null
+    }, {
+        "id" : 5,
+        "avatar" : "images/defaultMalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2166465",
+        "patEntityId" : 2166465,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 661630,
+        "patName" : "wait, wait q.",
+        "patGenderAgeDobMrn" : "M/103 - 12/12/1912 - TestingAgagin333",
+        "patPhone" : null,
+        "dateOfService" : "1431029485000",
+        "dateOfEntry" : "1431029517016",
+        "reviewStatus" : "PENDING",
+        "resultName" : "CBC w/ Retic",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
+        "beanErrors" : null
+    }, {
+        "id" : 6,
+        "avatar" : "images/defaultMalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2166401",
+        "patEntityId" : 2166401,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 661630,
+        "patName" : "wait, wait q.",
+        "patGenderAgeDobMrn" : "M/103 - 12/12/1912 - TestingAgagin333",
+        "patPhone" : null,
+        "dateOfService" : "1431028823000",
+        "dateOfEntry" : "1431028852479",
+        "reviewStatus" : "PENDING",
+        "resultName" : "CBC w/ Retic",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
+        "beanErrors" : null
+    },{ 
+        "id" : 1,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader1723997",
+        "patEntityId" : 1723997,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 530702,
+        "patName" : "release2/8, Test ",
+        "patGenderAgeDobMrn" : "F/38 - 12/07/1977 - 767888",
+        "patPhone" : null,
+        "dateOfService" : "1423422000000",
+        "dateOfEntry" : "1423388577707",
+        "reviewStatus" : "PENDING",
+        "resultName" : "DOG DANDER (E5) IGE",
+        "resultFlag" : "HIGH",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "release2/8, Test  (F/38 - 12/07/1977 - 767888)",
+        "beanErrors" : null
+    }, {
+        "id" : 2,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2034336",
+        "patEntityId" : 2034336,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 625179,
+        "patName" : "Patch3/22, Test ",
+        "patGenderAgeDobMrn" : "F/36 - 12/01/1979 - 65656",
+        "patPhone" : null,
+        "dateOfService" : "1427010203000",
+        "dateOfEntry" : "1427010220214",
+        "reviewStatus" : "PENDING",
+        "resultName" : "Panel3/22",
+        "resultFlag" : "NORMAL",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "Patch3/22, Test  (F/36 - 12/01/1979 - 65656)",
+        "beanErrors" : null
+    }, {
+        "id" : 3,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2175385",
+        "patEntityId" : 2175385,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 665862,
+        "patName" : "ZZJones, TestMa1 ",
+        "patGenderAgeDobMrn" : "F/50 - 10/19/1965 - zztestma1",
+        "patPhone" : null,
+        "dateOfService" : "1431445271000",
+        "dateOfEntry" : "1431445324070",
+        "reviewStatus" : "PENDING",
+        "resultName" : "INR",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "ZZJones, TestMa1  (F/50 - 10/19/1965 - zztestma1)",
+        "beanErrors" : null
+    }, {
+        "id" : 4,
+        "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2166546",
+        "patEntityId" : 2166546,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 661664,
+        "patName" : "pentium, pentium q.",
+        "patGenderAgeDobMrn" : "F/103 - 12/12/1912 - pentium333",
+        "patPhone" : null,
+        "dateOfService" : "1431030311000",
+        "dateOfEntry" : "1431030348618",
+        "reviewStatus" : "PENDING",
+        "resultName" : "CBC w/ Retic",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "pentium, pentium q. (F/103 - 12/12/1912 - pentium333)",
+        "beanErrors" : null
+    }, {
+        "id" : 5,
+        "avatar" : "images/defaultMalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2166465",
+        "patEntityId" : 2166465,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 661630,
+        "patName" : "wait, wait q.",
+        "patGenderAgeDobMrn" : "M/103 - 12/12/1912 - TestingAgagin333",
+        "patPhone" : null,
+        "dateOfService" : "1431029485000",
+        "dateOfEntry" : "1431029517016",
+        "reviewStatus" : "PENDING",
+        "resultName" : "CBC w/ Retic",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
+        "beanErrors" : null
+    }, {
+        "id" : 6,
+        "avatar" : "images/defaultMalePatientPhoto-mobile.png",
+        "uniqueId" : "PatientResultHeader2166401",
+        "patEntityId" : 2166401,
+        "patEntityType" : "PatientResultHeader",
+        "patId" : 661630,
+        "patName" : "wait, wait q.",
+        "patGenderAgeDobMrn" : "M/103 - 12/12/1912 - TestingAgagin333",
+        "patPhone" : null,
+        "dateOfService" : "1431028823000",
+        "dateOfEntry" : "1431028852479",
+        "reviewStatus" : "PENDING",
+        "resultName" : "CBC w/ Retic",
+        "resultFlag" : "NONE",
+        "reviewCategory" : "Lab",
+        "transferred" : false,
+        "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
+        "beanErrors" : null
+    },{ 
         "id" : 1,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
         "uniqueId" : "PatientResultHeader1723997",
@@ -146,8 +374,10 @@ public class SampleData {
         "beanErrors" : null
     }
 ]
-         
-    }-*/;
+
+    }-*/ ;
+    
+    
     public static native JsArray<Patient> getPatients() /*-{
         return [
     {

@@ -54,13 +54,21 @@ public class PatientSearchView extends NavMenuView {
         
         list.setItems(SampleData.getPatients());
         
-        // reset the page
+    }
+    
+    /* (non-Javadoc)
+     * @see com.mckesson.mg2.client.patient.NavMenuView#initWidget(com.google.gwt.user.client.ui.Widget)
+     */
+    @Override
+    protected void initWidget(Widget widget) {
+        super.initWidget(widget);
+
+        // reset the page on clicking search
         search.addClickHandler(new ClickHandler() {
             
             public void onClick(ClickEvent event) {
                 gotoPatientSearchView();
             }
-        });
-    
+        });    
     }
 }

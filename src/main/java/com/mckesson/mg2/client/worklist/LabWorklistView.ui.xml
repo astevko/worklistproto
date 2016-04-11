@@ -4,105 +4,135 @@
 	xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
     xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
 	>
-	<ui:style>
-	/* Add CSS here. See the GWT docs on UI Binder for more details */
-	</ui:style>
-	<g:HTMLPanel ui:field="view" addStyleNames="lab-worklist-view">
-        <style is="custom-style">
-			.view {
-				display: flex;
-				flex-direction: column;
-				align-items: left;		
-			}
-			.header {
-				align-self: stretch;
-				flex-grow: 1;
-				--paper-toolbar-background: #005a8c;
-			}
-			.body {
-				align-self: stretch;
-				flex-grow: 25;
-				height: 388px;
-			}
-			.footer {
-				align-self: stretch;
-				flex-grow: 1;
-			}
-                   
-            .lab-worklist-view paper-header-panel {
-                width: 100%;
-                @apply(--shadow-elevation-2dp);
-            }
-
-            .lab-worklist-view .paper-header {
-                height: 60px;
-                font-size: 16px;
-                line-height: 60px;
-                padding: 0 10px;
-                color: white;
-                transition: height 0.2s;
-            }
-
-            .lab-worklist-view .content {
-                height: 2000px;
-            }
-
-            .lab-worklist-view .cover {
-                margin: 60px;
-            }
-
-            .lab-worklist-view .blue .paper-header {
-                background-color: #005a8c;
-            }
-            .lab-worklist-view .orange .paper-header {
-                background-color: #ef8200;
-            }
-            .lab-worklist-view .green .paper-header {
-                background-color: #5a8e22;
-            }
-
-        </style>
-        <div class="lab-worklist-view">
-            <p:PaperHeaderPanel addStyleNames="blue">
-                <div class="paper-header">Worklist</div>
-			       <p:PaperTabs selected="0" scrollable="true">
-			            <p:PaperTab>Lab Results</p:PaperTab>
-			            <p:PaperTab>Sign Orders</p:PaperTab>
-			            <p:PaperTab>Imaging</p:PaperTab>
-			            <p:PaperTab>Review Notes</p:PaperTab>
-			            <p:PaperTab>Other Documents</p:PaperTab>
-			            <p:PaperTab>eRx</p:PaperTab>
-			        </p:PaperTabs>
-            </p:PaperHeaderPanel>
-			<i:IronList ui:field="list" as="lab" styleName="body">
-				<template>
-					<div>
-	                    <div class="patient">
-	                        <img class="avatar" src="[[lab.avatar]]"/>
-	                        <div class="pad">
-	                            <div class="primary">[[lab.patientDisplayString]]</div>
-	                            <div class="secondary">[[lab.resultName]]</div>
-		                        <div class="secondary dim">[[lab.reviewStatus]]</div>
-	                        </div>
-	                    </div>
-                    </div>
-	            </template>
+	
+	<g:HTMLPanel ui:field="view" styleName="view">
+        <style is="custom-style" include="iron-flex iron-flex-alignment">
+		.view {
+			background-color: #ffffff;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			overflow:hidden;
+								
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;		
+		}
+		.header {
+			color: white;		
+			background-color: #005a8c;	
+			padding: 0.5em;
+			flex: 2 0 auto;
+			height: 1.5em;
+		}
+		.mid {
+			flex: auto;
+		}
+		.footer {
+			--paper-toolbar-background: #005a8c;
+		}
+		.tabs_outer {
+			width: 100%;
+			overflow-x: scroll;
+			flex: 4 0 auto;
+			height: 2em;
+		}
+		.tabs {
+			overflow: hidden;
+			height: 1.5em;
+			width: 150%;
+		
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+		}
+		.tab {
+			margin: 0.5em;
+			flex-grow: 0;
+		}
+		.tab_selected {
+			font-weight: bold;
+			text-decoration: underline;
+			
+		}
+		/* list */
+        iron-list {
+            background-color: var(--paper-grey-200, #eee);
+            padding-bottom: 16px;
+        }
+        .mid .item {
+            @apply(--layout-horizontal);
+            margin: 16px 16px 0 16px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: white;
+            border: 1px solid #ddd;
+        }
+        .mid .avatar {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            box-sizing: border-box;
+            background-color: #DDD;
+        }
+        .mid .pad {
+            padding: 0 16px;
+ 			@apply(--layout-flex);
+            @apply(--layout-vertical);
+         }
+        .mid .primary {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .mid .secondary {
+            font-size: 14px;
+        }
+        .mid .dim {
+            color: gray;
+        }
+ 		
+        </style>        
+    	<div class="header">Worklist</div>
+<!--   	    <p:PaperTabs selected="0" scrollable="true" addStyleNames="header" name="labworklist-tabs" >
+            <p:PaperTab ui:field="tabLabResults">Lab Results</p:PaperTab>
+            <p:PaperTab ui:field="tabSignOrders">Sign Orders</p:PaperTab>
+            <p:PaperTab ui:field="tabImaging">Imaging</p:PaperTab>
+            <p:PaperTab ui:field="tabReviewNotes">Review Notes</p:PaperTab>
+            <p:PaperTab ui:field="tabOtherDocuments">Other Documents</p:PaperTab>
+            <p:PaperTab ui:field="tabERX">eRx</p:PaperTab>
+       </p:PaperTabs>       
+ -->	
+ 		<div class="tabs_outer">
+	 		<div class="tabs">
+	 			<span class="tab tab_selected">Lab Results</span>
+	 			<span class="tab">Sign Orders</span>
+	 			<span class="tab">Imaging</span>
+	 			<span class="tab">Review Notes</span>
+	 			<span class="tab">Other Documents</span>
+	 			<span class="tab">eRx</span>
+	 		</div>
+ 		</div>	
+ 		<i:IronList ui:field="list" as="item" addStyleNames="mid"  name="labworklist-mid" >
+			<template>
+				<div>
+                    <div class="item">
+		                       <img class="avatar" src="[[item.avatar]]"/>
+		                       <div class="pad">
+		                           <div class="primary">[[item.patientDisplayString]]</div>
+		                           <div class="secondary">[[item.resultName]]</div>
+		                        <div class="secondary dim">[[item.reviewStatus]]</div>
+		                       </div>
+		                   </div>
+	                  </div>
+		           </template>
 			</i:IronList>	            
-			<div class="footer">
-				<p:PaperToolbar>
-					<p:PaperIconButton active='true' ui:field="navPatientActive" src="images/navPatientActive.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
-					<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
-		        </p:PaperToolbar>
-			</div>	        
-       </div>	
-		<!-- Add GWT widgets here. Enter < and hit Ctrl-Space to auto-complete 
-			widget names. The ui:field attribute binds an element to a field in the owner 
-			class. See the GWT docs on UI Binder for more details. -->
-			<i:IronSwipeableContainer ui:field='swipeable'>
-				<img src="specs/WorklistView.png"/>
-			</i:IronSwipeableContainer>
-	</g:HTMLPanel>
+ 		<p:PaperToolbar  addStyleNames="footer"  name="labworklist-foot" >
+			<p:PaperIconButton ui:field="navPatientActive" src="images/navPatientActive.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
+			<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
+			<p:PaperIconButton ui:field="navMessage" src="images/navMessage.png" ariaLabel="Messaging" title="Messaging"></p:PaperIconButton>			
+			<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
+			<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
+        </p:PaperToolbar>
+ 	</g:HTMLPanel>
 </ui:UiBinder> 

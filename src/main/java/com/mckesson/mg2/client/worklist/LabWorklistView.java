@@ -11,9 +11,6 @@ import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.patient.NavMenuView;
 import com.mckesson.mg2.client.utils.MG2Log;
 import com.vaadin.polymer.iron.widget.IronList;
-import com.vaadin.polymer.iron.widget.IronSwipeableContainer;
-import com.vaadin.polymer.iron.widget.event.IronSwipeEvent;
-import com.vaadin.polymer.iron.widget.event.IronSwipeEventHandler;
 
 /**
  * @author efdj6eb
@@ -26,18 +23,16 @@ public class LabWorklistView extends NavMenuView {
      */
     private static final MG2Log log = new MG2Log(LabWorklistView.class);
     
-    private static LabWorklistViewUiBinder uiBinder = GWT.create(LabWorklistViewUiBinder.class);
+    private LabWorklistViewUiBinder uiBinder = GWT.create(LabWorklistViewUiBinder.class);
 
     interface LabWorklistViewUiBinder extends UiBinder<Widget, LabWorklistView> {
     }
     
     /**
-     * patient list
+     * lab work list
      */
     @UiField IronList list;
     
-    
-    @UiField IronSwipeableContainer swipeable;
     
     /**
      * Because this class has a default constructor, it can
@@ -53,19 +48,27 @@ public class LabWorklistView extends NavMenuView {
     public LabWorklistView() {
         initWidget(uiBinder.createAndBindUi(this));
         log.info("LabWorklistView()");
+     }
+    
+
+    /* (non-Javadoc)
+     * @see com.mckesson.mg2.client.worklist.WorkliskView#initWidget(com.google.gwt.user.client.ui.Widget)
+     */
+    @Override
+    protected void initWidget(Widget widget) {        
+        super.initWidget(widget);
+        
+        // TODO select tab
+        // TODO select nav
+    }
+    
+    /* (non-Javadoc)
+     * @see com.google.gwt.user.client.ui.Widget#onLoad()
+     */
+    @Override
+    protected void onLoad() {
+        super.onLoad();
         
         list.setItems(SampleData.getLabWorklists());
-        
-        
-        swipeable.addIronSwipeHandler(new IronSwipeEventHandler() {
-            
-            @Override
-            public void onIronSwipe(IronSwipeEvent event) {
-                
-                log.info("onIronSwiped! " + event.getNativeEvent().toSource());
-                event.preventDefault();
-            }
-        });
     }
-
 }
