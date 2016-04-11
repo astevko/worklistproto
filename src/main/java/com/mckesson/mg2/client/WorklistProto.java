@@ -46,6 +46,7 @@ public class WorklistProto implements EntryPoint {
      */
     public void onModuleLoad() {      
         log.info("WorklistProto.onModuleLoad()");
+        goFullScreen();
         startPolymer();
 
     }
@@ -121,6 +122,23 @@ public class WorklistProto implements EntryPoint {
         });
     }
 
+    /**
+     * force fullscreen??
+     * https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
+     */
+    public static native void goFullScreen() /*-{
+        var elem = $doc.body;
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          elem.msRequestFullscreen();
+        } else if (elem.mozRequestFullScreen) {
+          elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        }    
+    }-*/;
+    
     /**
      * 
      */
