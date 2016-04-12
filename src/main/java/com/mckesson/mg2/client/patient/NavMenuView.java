@@ -40,6 +40,7 @@ abstract public class NavMenuView extends Composite {
     public PaperIconButton navHamburgerMenu;
 
     protected void clear() {
+        log.info("clear view");
         RootPanel.get().clear();
     }
 

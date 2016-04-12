@@ -13,94 +13,133 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
+import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
+import com.googlecode.mgwt.dom.client.recognizer.longtap.LongTapEvent;
+import com.googlecode.mgwt.dom.client.recognizer.longtap.LongTapHandler;
+import com.googlecode.mgwt.dom.client.recognizer.swipe.SwipeEndEvent;
+import com.googlecode.mgwt.dom.client.recognizer.swipe.SwipeEndHandler;
+import com.googlecode.mgwt.ui.client.widget.touch.TouchPanel;
 import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.SampleData.LabWorklist;
+import com.mckesson.mg2.client.patient.InterpretLabResultsView;
 import com.mckesson.mg2.client.utils.MG2Log;
 
 /**
  * @author efdj6eb
- *
  */
 public class LabWorklistView extends WorklistView {
-    public interface ListItem extends SafeHtmlTemplates {
-        @Template("<div class='item_outer'> <div class='item'> <img class='avatar' src='{0}'> <div class='pad'> <div class='primary'>{1}</div> <div class='secondary'>{2}</div> <div class='secondary dim'>{3}</div> </div> </div> </div>")
+    interface LabWorklistViewUiBinder extends UiBinder<Widget, LabWorklistView> {
+    };
+
+    interface ListItem extends SafeHtmlTemplates {
+        @Template("<div class='item_outer'> <div class='item'> <img class='avatar' src='{0}'> <div class='pad'> <div class='primary'>{1}</div> <div class='secondary'>{2}</div> <div class='secondary dim'>{3}</div> </div> "
+                + "<iron-icon icon='chevron-right'></iron-icon>" 
+                + " </div> </div>")
         SafeHtml template(String avatar, String primary, String MRN_DOB, String tertiary);
-      };
+    }
 
     static final ListItem ITEM = GWT.create(ListItem.class);
 
-    
     /**
-     * logger 
+     * logger
      */
     private static final MG2Log log = new MG2Log(LabWorklistView.class);
-    
-    private LabWorklistViewUiBinder uiBinder = GWT.create(LabWorklistViewUiBinder.class);
 
-    interface LabWorklistViewUiBinder extends UiBinder<Widget, LabWorklistView> {
-    }
-    
+    private final LabWorklistViewUiBinder uiBinder = GWT.create(LabWorklistViewUiBinder.class);
+
     /**
      * lab work list
      */
-//    @UiField IronList list;
-    @UiField HTMLPanel list;
+    @UiField
+    HTMLPanel list;
 
-   
+    private final TapHandler itemTap = new TapHandler() {
+
+        @Override
+        public void onTap(final TapEvent event) {
+            log.info("Item tap");
+            gotoInterpretLabResults();
+        }
+    };
+
+    private final LongTapHandler itemLongTap = new LongTapHandler() {
+        @Override
+        public void onLongTap(final LongTapEvent event) {
+            log.info("Item long tap");
+            gotoLabWorklistBatchView();
+        }
+    };
+
+    private final SwipeEndHandler itemSwipe = new SwipeEndHandler() {
+
+        @Override
+        public void onSwipeEnd(final SwipeEndEvent event) {
+            log.info("item swipe");
+            gotoLabWorklistBatchView();
+        }
+    };
+
     public LabWorklistView() {
-        initWidget(uiBinder.createAndBindUi(this));        
+        initWidget(uiBinder.createAndBindUi(this));
         log.info("LabWorklistView()");
         populateList(SampleData.getLabWorklists());
-     }
-    
-    /**
-     * @param labWorklists
-     */
-    protected void populateList(JsArray<LabWorklist> labWorklists) {
-        // create paper cards for eachitem in the list
-        for (int i = 0; i < labWorklists.length(); i++) {            
-            final LabWorklist labWorklist = labWorklists.get(i);
-            list.add(new HTML( ITEM.template(labWorklist.avatar(), labWorklist.patientDisplayString(), labWorklist.patGenderAgeDobMrn(), labWorklist.resultName())));
-        }
-        
     }
 
-    protected void gotoLabWorklistBatchView(LabWorklist item) {
+    /**
+     * 
+     */
+    protected void gotoInterpretLabResults() {
+        log.info("gotoInterpretLabResults()");
+        clear();
+        // clicked tab
+        final InterpretLabResultsView newView = GWT.create(InterpretLabResultsView.class);
+        RootPanel.get().add(newView);
+    }
+
+    protected void gotoLabWorklistBatchView() {
         log.info("gotoLabWorklistBatchView()");
         // clicked tab
-        final LabWorklistBatchView batchView = GWT.create(LabWorklistBatchView.class);
+        final LabWorklistBatchView newView = GWT.create(LabWorklistBatchView.class);
         clear();
-        RootPanel.get().add((Widget) batchView);        
-        batchView.setSelectedItem(item);
+        RootPanel.get().add(newView);
     }
-    
-    
-    /* (non-Javadoc)
+
+    /*
+     * (non-Javadoc)
      * @see com.mckesson.mg2.client.worklist.WorkliskView#initWidget(com.google.gwt.user.client.ui.Widget)
      */
     @Override
-    protected void initWidget(Widget widget) {        
+    protected void initWidget(final Widget widget) {
         super.initWidget(widget);
-
-//        list.setSelectionEnabled(true);
-//        list.addClickHandler(new ClickHandler() {
-//            
-//            @Override
-//            public void onClick(ClickEvent event) {
-//                SampleData.LabWorklist item = (SampleData.LabWorklist) list.getSelectedItem();
-//                log.info("Open lab results "  + item.patientDisplayString() );
-//                gotoLabWorklistBatchView(item);
-//            }
-//        });
-        // TODO select tab
-        // TODO select nav
     }
-    
-    /* (non-Javadoc)
+
+    /*
+     * (non-Javadoc)
      * @see com.google.gwt.user.client.ui.Widget#onLoad()
      */
     @Override
     protected void onLoad() {
         super.onLoad();
+    }
+
+    /**
+     * @param labWorklists
+     */
+    protected void populateList(final JsArray<LabWorklist> labWorklists) {
+        // create paper cards for eachitem in the list
+        for (int i = 0; i < labWorklists.length(); i++) {
+            final LabWorklist labWorklist = labWorklists.get(i);
+            final SafeHtml html =
+                    ITEM.template(labWorklist.avatar(), labWorklist.patientDisplayString(), labWorklist.patGenderAgeDobMrn(),
+                            labWorklist.resultName());
+            final TouchPanel panel = new TouchPanel();
+            panel.addTapHandler(itemTap);
+            panel.addLongTapHandler(itemLongTap);
+            panel.addSwipeEndHandler(itemSwipe);
+            panel.add(new HTML(html));
+            list.add(panel);
+        }
+
     }
 }
