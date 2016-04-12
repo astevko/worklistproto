@@ -320,6 +320,51 @@ function worklistproto(){
       throw null;
     }
 
+    providers['mgwt.density'] = function(){
+      if (!window.devicePixelRatio) {
+        return 'mid';
+      }
+      if (window.devicePixelRatio > 1.5) {
+        return 'xhigh';
+      }
+       else if (window.devicePixelRatio > 1) {
+        return 'high';
+      }
+      return 'mid';
+    }
+    ;
+    values['mgwt.density'] = {'high':0, 'mid':1, 'xhigh':2};
+    providers['mgwt.formfactor'] = function(){
+      var args = location.search;
+      var start_0 = args.indexOf('formfactor');
+      if (start_0 >= 0) {
+        var value_0 = args.substring(start_0);
+        var begin = value_0.indexOf('=') + 1;
+        var end = value_0.indexOf('&');
+        if (end == -1) {
+          end = value_0.length;
+        }
+        return value_0.substring(begin, end);
+      }
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.indexOf('iphone') != -1 || ua.indexOf('ipod') != -1) {
+        return 'phone';
+      }
+       else if (ua.indexOf('ipad') != -1) {
+        return 'tablet';
+      }
+       else if (ua.indexOf('android') != -1) {
+        if (ua.indexOf('mobile') != -1) {
+          return 'phone';
+        }
+         else {
+          return 'tablet';
+        }
+      }
+      return 'desktop';
+    }
+    ;
+    values['mgwt.formfactor'] = {'desktop':0, 'phone':1, 'tablet':2};
     providers['phonegap.env'] = function(){
       {
         var ua = window.navigator.userAgent.toLowerCase();
@@ -356,9 +401,97 @@ function worklistproto(){
     }
     var strongName;
     try {
-      unflattenKeylistIntoAnswers(['no'], '6FA36944AAA522B93B620C8633E99AE3');
-      unflattenKeylistIntoAnswers(['yes'], '9719CB1671CF916C3A4C06F7C405D90D');
-      strongName = answers[computePropValue('phonegap.env')];
+      unflattenKeylistIntoAnswers(['high', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616');
+      unflattenKeylistIntoAnswers(['mid', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616');
+      unflattenKeylistIntoAnswers(['xhigh', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616');
+      unflattenKeylistIntoAnswers(['high', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616' + ':1');
+      unflattenKeylistIntoAnswers(['mid', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616' + ':1');
+      unflattenKeylistIntoAnswers(['xhigh', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616' + ':1');
+      unflattenKeylistIntoAnswers(['high', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616' + ':2');
+      unflattenKeylistIntoAnswers(['mid', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616' + ':2');
+      unflattenKeylistIntoAnswers(['xhigh', 'desktop', 'no'], '6D6E8A57F89B7CF7D7D4E9C8EA624616' + ':2');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':1');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':1');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':1');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':1');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':1');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':1');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':2');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':2');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':2');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':2');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':2');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':2');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':3');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':3');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':3');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':3');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':3');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':3');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':4');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':4');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':4');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':4');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':4');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':4');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':5');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':5');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':5');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':5');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':5');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'no'], '72614BCFD7DEC0087E79983C8E8A22D0' + ':5');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':1');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':1');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':1');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':1');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':1');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':1');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':2');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':2');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':2');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':2');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':2');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':2');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':3');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':3');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':3');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':3');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':3');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':3');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':4');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':4');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':4');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':4');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':4');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':4');
+      unflattenKeylistIntoAnswers(['high', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':5');
+      unflattenKeylistIntoAnswers(['high', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':5');
+      unflattenKeylistIntoAnswers(['mid', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':5');
+      unflattenKeylistIntoAnswers(['mid', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':5');
+      unflattenKeylistIntoAnswers(['xhigh', 'phone', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':5');
+      unflattenKeylistIntoAnswers(['xhigh', 'tablet', 'yes'], '816A65332C701FF0D4CF2B0E1822EFCA' + ':5');
+      unflattenKeylistIntoAnswers(['high', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD');
+      unflattenKeylistIntoAnswers(['mid', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD');
+      unflattenKeylistIntoAnswers(['xhigh', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD');
+      unflattenKeylistIntoAnswers(['high', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD' + ':1');
+      unflattenKeylistIntoAnswers(['mid', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD' + ':1');
+      unflattenKeylistIntoAnswers(['xhigh', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD' + ':1');
+      unflattenKeylistIntoAnswers(['high', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD' + ':2');
+      unflattenKeylistIntoAnswers(['mid', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD' + ':2');
+      unflattenKeylistIntoAnswers(['xhigh', 'desktop', 'yes'], 'D653FE84376E50AB7B15E5A304FBFCFD' + ':2');
+      strongName = answers[computePropValue('mgwt.density')][computePropValue('mgwt.formfactor')][computePropValue('phonegap.env')];
       var idx = strongName.indexOf(':');
       if (idx != -1) {
         softPermutationId = parseInt(strongName.substring(idx + 1), 10);
