@@ -25,7 +25,26 @@ public class SampleData {
         };
         public final native int id() /*-{
             return this.id;
-        }-*/;                
+        }-*/;              
+
+        public final native String patientDisplayString() /*-{
+            return this.patientDisplayString;
+        }-*/;
+        /**
+         * 
+         */
+        public final native void toggleSelection() /*-{
+            this.isSelected = !this.isSelected;
+            if (this.isSelected) {
+                this.selectionIcon = 'check-circle';
+            } else {
+                this.selectionIcon = 'add-circle';
+            }            
+        }-*/;
+        
+        public final native void isSelected() /*-{
+            return this.isSelected;
+        }-*/;
     }
     
     public static native JsArray<LabWorklist> getLabWorklists() /*-{
@@ -48,7 +67,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "release2/8, Test  (F/38 - 12/07/1977 - 767888)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 2,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -67,7 +86,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "Patch3/22, Test  (F/36 - 12/01/1979 - 65656)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 3,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -86,7 +105,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "ZZJones, TestMa1  (F/50 - 10/19/1965 - zztestma1)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 4,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -105,7 +124,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "pentium, pentium q. (F/103 - 12/12/1912 - pentium333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 5,
         "avatar" : "images/defaultMalePatientPhoto-mobile.png",
@@ -124,7 +143,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 6,
         "avatar" : "images/defaultMalePatientPhoto-mobile.png",
@@ -143,7 +162,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     },{ 
         "id" : 1,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -162,7 +181,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "release2/8, Test  (F/38 - 12/07/1977 - 767888)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 2,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -181,7 +200,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "Patch3/22, Test  (F/36 - 12/01/1979 - 65656)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 3,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -200,7 +219,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "ZZJones, TestMa1  (F/50 - 10/19/1965 - zztestma1)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 4,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -219,7 +238,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "pentium, pentium q. (F/103 - 12/12/1912 - pentium333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 5,
         "avatar" : "images/defaultMalePatientPhoto-mobile.png",
@@ -238,7 +257,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 6,
         "avatar" : "images/defaultMalePatientPhoto-mobile.png",
@@ -257,7 +276,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     },{ 
         "id" : 1,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -276,7 +295,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "release2/8, Test  (F/38 - 12/07/1977 - 767888)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 2,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -295,7 +314,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "Patch3/22, Test  (F/36 - 12/01/1979 - 65656)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 3,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -314,7 +333,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "ZZJones, TestMa1  (F/50 - 10/19/1965 - zztestma1)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 4,
         "avatar" : "images/defaultFemalePatientPhoto-mobile.png",
@@ -333,7 +352,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "pentium, pentium q. (F/103 - 12/12/1912 - pentium333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 5,
         "avatar" : "images/defaultMalePatientPhoto-mobile.png",
@@ -352,7 +371,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }, {
         "id" : 6,
         "avatar" : "images/defaultMalePatientPhoto-mobile.png",
@@ -371,7 +390,7 @@ public class SampleData {
         "reviewCategory" : "Lab",
         "transferred" : false,
         "patientDisplayString" : "wait, wait q. (M/103 - 12/12/1912 - TestingAgagin333)",
-        "beanErrors" : null
+        "isSelected" : false, "selectionIcon" : "add-circle"
     }
 ]
 

@@ -126,7 +126,7 @@ public abstract class WorklistView extends NavMenuView {
 
             @Override
             public void onClick(final ClickEvent event) {
-                gotoOtherDocumentsView();
+                gotoReviewNotesView();
             }
         });
         // tab

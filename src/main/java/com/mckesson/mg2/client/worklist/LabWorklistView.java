@@ -4,10 +4,14 @@
 package com.mckesson.mg2.client.worklist;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mckesson.mg2.client.SampleData;
+import com.mckesson.mg2.client.SampleData.LabWorklist;
 import com.mckesson.mg2.client.utils.MG2Log;
 import com.vaadin.polymer.iron.widget.IronList;
 
@@ -31,32 +35,41 @@ public class LabWorklistView extends WorklistView {
      * lab work list
      */
     @UiField IronList list;
-    
-    
-    /**
-     * Because this class has a default constructor, it can
-     * be used as a binder template. In other words, it can be used in other
-     * *.ui.xml files as follows:
-     * <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-     *   xmlns:g="urn:import:**user's package**">
-     *  <g:**UserClassName**>Hello!</g:**UserClassName>
-     * </ui:UiBinder>
-     * Note that depending on the widget that is used, it may be necessary to
-     * implement HasHTML instead of HasText.
-     */
+
+   
     public LabWorklistView() {
-        initWidget(uiBinder.createAndBindUi(this));
+        initWidget(uiBinder.createAndBindUi(this));        
         log.info("LabWorklistView()");
+        list.setItems(SampleData.getLabWorklists());
      }
     
-
+    protected void gotoLabWorklistBatchView(LabWorklist item) {
+        log.info("gotoLabWorklistBatchView()");
+        // clicked tab
+        final LabWorklistBatchView batchView = GWT.create(LabWorklistBatchView.class);
+        clear();
+        RootPanel.get().add((Widget) batchView);        
+        batchView.setSelectedItem(item);
+    }
+    
+    
     /* (non-Javadoc)
      * @see com.mckesson.mg2.client.worklist.WorkliskView#initWidget(com.google.gwt.user.client.ui.Widget)
      */
     @Override
     protected void initWidget(Widget widget) {        
         super.initWidget(widget);
-        
+
+        list.setSelectionEnabled(true);
+        list.addClickHandler(new ClickHandler() {
+            
+            @Override
+            public void onClick(ClickEvent event) {
+                SampleData.LabWorklist item = (SampleData.LabWorklist) list.getSelectedItem();
+                log.info("Open lab results "  + item.patientDisplayString() );
+                gotoLabWorklistBatchView(item);
+            }
+        });
         // TODO select tab
         // TODO select nav
     }
@@ -67,7 +80,5 @@ public class LabWorklistView extends WorklistView {
     @Override
     protected void onLoad() {
         super.onLoad();
-        
-        list.setItems(SampleData.getLabWorklists());
     }
 }

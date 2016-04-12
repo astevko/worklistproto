@@ -109,8 +109,8 @@
 	 			<g:InlineHTML ui:field="tabOtherDocuments"  addStyleNames="tab">Other Documents</g:InlineHTML>
 	 			<g:InlineHTML ui:field="tabERX"  addStyleNames="tab">eRx</g:InlineHTML>
 	 		</div>
- 		</div>	
- 		<i:IronList ui:field="list" as="item" addStyleNames="mid"  name="labworklist-mid" >
+ 		</div>
+ 		<i:IronList ui:field="list" as="item" addStyleNames="mid" name="labworklist-mid" >
 			<template>
 				<div>
                     <div class="item">
@@ -123,8 +123,8 @@
 		                       <iron-icon icon="chevron-right"></iron-icon>
 		                   </div>
 	                  </div>
-		           </template>
-			</i:IronList>	            
+           </template>
+		</i:IronList>
  		<p:PaperToolbar  addStyleNames="footer"  name="labworklist-foot" >
 			<p:PaperIconButton ui:field="navPatient" src="images/navPatient.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			

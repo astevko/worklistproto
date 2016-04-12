@@ -31,9 +31,8 @@
 		.footer {
 			--paper-toolbar-background: #005a8c;
 		}
-		.tabs_outer {
+		.selectHeader {
 			width: 100%;
-			overflow-x: scroll;
 			flex: 4 0 auto;
 			height: 2.5em;
 
@@ -41,16 +40,23 @@
 		    color: white;
 		    font-family: verdana;
 		    font-size: 0.8em;
-		    border-top: 1px solid #3078A2;			
+		    border-top: 1px solid #3078A2;
+		    
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;		    			
+		}
+		.selectLeft {
+		}
+		.selectCenter {
+		}
+		.selectRight {
 		}
 		.tabs {
 			overflow: hidden;
 			width: 150%;
 		
-			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
-			justify-content: flex-start;
 		}
 		.tab {
 			margin: 0.5em;
@@ -97,23 +103,19 @@
         .mid .dim {
             color: gray;
         }
- 		
+ 		.fab {
+			position: fixed;
+			bottom: 80px;
+			right: 30px; 			
+ 		}
         </style>        
-    	<div class="header">Worklist</div>
- 		<div class="tabs_outer">
-	 		<div class="tabs">
-	 			<g:InlineHTML ui:field="tabLabResults" addStyleNames="tab tab_selected">Lab Results</g:InlineHTML>
-	 			<g:InlineHTML ui:field="tabSignOrders"  addStyleNames="tab">Sign Orders</g:InlineHTML>
-	 			<g:InlineHTML ui:field="tabImaging"  addStyleNames="tab">Imaging</g:InlineHTML>
-	 			<g:InlineHTML ui:field="tabReviewNotes"  addStyleNames="tab">Review Notes</g:InlineHTML>
-	 			<g:InlineHTML ui:field="tabOtherDocuments"  addStyleNames="tab">Other Documents</g:InlineHTML>
-	 			<g:InlineHTML ui:field="tabERX"  addStyleNames="tab">eRx</g:InlineHTML>
-	 		</div>
- 		</div>	
- 		<i:IronList ui:field="list" as="item" addStyleNames="mid"  name="labworklist-mid" >
+    	<div class="header">Labs</div>
+    	<div class="selectHeader"><span class="selectLeft">1 selected</span><span class="selectFiller"></span><span class="selectRight">Cancel</span></div>
+ 		<i:IronList ui:field="list" as="item" addStyleNames="mid" multiSelection='true' selectionEnabled='true' name="labworklist-mid"  >
 			<template>
 				<div>
                     <div class="item">
+                    		   <iron-icon icon="[[item.selectionIcon]]"></iron-icon>
 		                       <img class="avatar" src="[[item.avatar]]"/>
 		                       <div class="pad">
 		                           <div class="primary">[[item.patientDisplayString]]</div>
@@ -123,7 +125,7 @@
 		                   </div>
 	                  </div>
 		           </template>
-			</i:IronList>	            
+		</i:IronList>
  		<p:PaperToolbar  addStyleNames="footer"  name="labworklist-foot" >
 			<p:PaperIconButton ui:field="navPatient" src="images/navPatient.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
@@ -131,5 +133,6 @@
 			<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
         </p:PaperToolbar>
+		<p:PaperFab addStyleNames="fab" icon="arrow-forward" title="arrow-forward" tabindex="0"></p:PaperFab>		
  	</g:HTMLPanel>
 </ui:UiBinder> 
