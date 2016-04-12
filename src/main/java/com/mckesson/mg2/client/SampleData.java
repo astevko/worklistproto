@@ -27,9 +27,63 @@ public class SampleData {
             return this.id;
         }-*/;              
 
-        public final native String patientDisplayString() /*-{
-            return this.patientDisplayString;
+        public final native String avatar() /*-{
+            return this.avatar;
         }-*/;
+
+        public final native String uniqueId() /*-{
+            return this.uniqueId;
+        }-*/;
+
+        public final native String patEntityId() /*-{
+            return this.patEntityId;
+        }-*/;
+
+        public final native String patEntityType() /*-{
+            return this.patEntityType;
+        }-*/;
+
+        public final native String patId() /*-{
+            return this.patId;
+        }-*/;
+
+        public final native String patName() /*-{
+            return this.patName;
+        }-*/;
+
+        public final native String patGenderAgeDobMrn() /*-{
+            return this.patGenderAgeDobMrn;
+        }-*/;
+
+        public final native String patPhone() /*-{
+            return this.patPhone;
+        }-*/;
+
+        public final native String reviewStatus() /*-{
+            return this.reviewStatus;
+        }-*/;
+
+        public final native String resultName() /*-{
+            return this.resultName;
+        }-*/;
+
+        public final native String resultFlag() /*-{
+        return this.resultFlag;
+    }-*/;
+
+        public final native String reviewCategory() /*-{
+        return this.reviewCategory;
+    }-*/;
+
+        public final native String transferred() /*-{
+        return this.transferred;
+    }-*/;
+
+        public final native String patientDisplayString() /*-{
+        return this.patientDisplayString;
+    }-*/;
+
+        
         /**
          * 
          */
