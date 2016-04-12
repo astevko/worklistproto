@@ -4,61 +4,62 @@
 	xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
     xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
 	>
-	<ui:style>
-	.view {
-		background-color: #005a8c;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		text-align: center;
-		vertical-align: middle;
-	}
-	.inputForm {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		
-	}
-	.inputForm paper-input {		
-		width: 20em;		
-	}
-	.logobar {
-		width: 100%;
-		padding: 3% 0;
-		border-bottom: 2px solid #CCC;
-	}
-	.logobar img {
-		max-width: 44%;
-	}	
-	.logobar2 {
-		width: 100%;
-		padding: 3% 0;
-	}
-	.logobar2 img {
-		max-width: 80%;
-	}	
-	.applogo {
-		margin: 1em 0;
-	}
-	
-	.applogo img {
-		width: 75%;
-	}
-	</ui:style>
+	<ui:Style>
+			.view {
+				background-color: #005a8c;
+				width: 100%;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				vertical-align: middle;
+			}
+	</ui:Style>
 	<g:HTMLPanel ui:field="view" styleName="{style.view}">
-		<style  is="custom-style">
+		<style>
+			.inputForm {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				
+			}
+			.inputForm paper-input {		
+				width: 20em;		
+			}
+			.logobar {
+				width: 100%;
+				padding: 3% 0;
+				border-bottom: 2px solid #CCC;
+			}
+			.logobar img {
+				max-width: 44%;
+			}	
+			.logobar2 {
+				width: 100%;
+				padding: 3% 0;
+			}
+			.logobar2 img {
+				max-width: 80%;
+			}	
+			.applogo {
+				margin: 1em 0;
+			}
+			
+			.applogo img {
+				width: 75%;
+			}
+			.loginButtonStyle {color: white; font-family: arial; background: #4397d2;}
 		</style>
-		<div class="{style.logobar}">
+		<div class="logobar">
 			<img src="images/logoUSONMobile.png"/>
 			<img src="images/logoMSHMobile.png"/>
 		</div>
-		<div class="{style.logobar2}">
+		<div class="logobar2">
 			<img src="images/logoG2Mobile.png"/>
 		</div>
-		<div class="{style.inputForm}">
+		<div class="inputForm">
 			<p:PaperInput label="Username"  required="true"></p:PaperInput>
 			<p:PaperInput label="Password"  required="true" type="password"></p:PaperInput>
-			<p:PaperButton ui:field="loginButton" raised="true">Log in</p:PaperButton>
+			<p:PaperButton ui:field="loginButton" raised="true" class="loginButtonStyle">Log in</p:PaperButton>
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder> 
