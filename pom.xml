@@ -35,6 +35,12 @@
 	</dependencyManagement>
 
 	<dependencies>
+		<!-- mgwt dependency -->
+		<dependency>
+			<groupId>com.googlecode.mgwt</groupId>
+			<artifactId>mgwt</artifactId>
+			<version>LATEST</version>
+		</dependency>
 		<!-- gwtphonegap dependency -->
 		<dependency>
 			<groupId>com.googlecode.gwtphonegap</groupId>

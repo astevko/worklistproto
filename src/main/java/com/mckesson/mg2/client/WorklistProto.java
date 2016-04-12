@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
@@ -18,6 +17,8 @@ import com.googlecode.gwtphonegap.client.event.OffLineEvent;
 import com.googlecode.gwtphonegap.client.event.OffLineHandler;
 import com.googlecode.gwtphonegap.client.event.OnlineEvent;
 import com.googlecode.gwtphonegap.client.event.OnlineHandler;
+import com.googlecode.mgwt.ui.client.MGWT;
+import com.googlecode.mgwt.ui.client.MGWTSettings;
 import com.mckesson.mg2.client.main.LoginView;
 import com.mckesson.mg2.client.utils.AppStatusEvent;
 import com.mckesson.mg2.client.utils.AppStatusLevel;
@@ -46,6 +47,9 @@ public class WorklistProto implements EntryPoint {
      */
     public void onModuleLoad() {      
         log.info("WorklistProto.onModuleLoad()");
+        // set viewport and other settings for mobile
+        MGWT.applySettings(MGWTSettings.getAppSetting());
+        
         goFullScreen();
         startPolymer();
 
