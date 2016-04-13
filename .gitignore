@@ -2,4 +2,4 @@
 *.java
 *.symbolMap
 *.jar
-
+WEB-INF/*
