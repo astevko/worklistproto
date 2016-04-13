@@ -39,33 +39,33 @@ abstract public class NavMenuView extends Composite {
     @UiField
     public PaperIconButton navHamburgerMenu;
 
-    protected void clear() {
+    public static void clear() {
         log.info("clear view");
         RootPanel.get().clear();
     }
 
-    protected void gotoCalendarView() {
+    public static void gotoCalendarView() {
         log.info("gotoCalendarView()");
         clear();
         // clicked search button forces search view reset
         RootPanel.get().add((Widget) GWT.create(CalendarView.class));
     }
 
-    protected void gotoMessageView() {
+    public static void gotoMessageView() {
         log.info("gotoMessageView()");
         clear();
         // clicked search button forces search view reset
         RootPanel.get().add((Widget) GWT.create(MessageView.class));
     }
 
-    protected void gotoPatientSearchView() {
+    public static void gotoPatientSearchView() {
         log.info("gotoPatientSearchView()");
         clear();
         // clicked search button forces search view reset
         RootPanel.get().add((Widget) GWT.create(PatientSearchView.class));
     }
 
-    protected void gotoWorklistView() {
+    public static void gotoWorklistView() {
         log.info("gotoWorklistView()");
         clear();
         // clicked search button forces search view reset

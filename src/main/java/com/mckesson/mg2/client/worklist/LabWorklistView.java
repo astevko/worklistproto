@@ -5,8 +5,12 @@ package com.mckesson.mg2.client.worklist;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JsArray;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.safehtml.client.SafeHtmlTemplates;
 import com.google.gwt.safehtml.shared.SafeHtml;
+import com.google.gwt.safehtml.shared.SafeUri;
+import com.google.gwt.safehtml.shared.UriUtils;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.HTML;
@@ -36,7 +40,7 @@ public class LabWorklistView extends WorklistView {
         @Template("<div class='item_outer'> <div class='item'> <img class='avatar' src='{0}'> <div class='pad'> <div class='primary'>{1}</div> <div class='secondary'>{2}</div> <div class='secondary dim'>{3}</div> </div> "
                 + "<iron-icon icon='chevron-right'></iron-icon>" 
                 + " </div> </div>")
-        SafeHtml template(String avatar, String primary, String MRN_DOB, String tertiary);
+        SafeHtml template(SafeUri avatar, String primary, String MRN_DOB, String tertiary);
     }
 
     static final ListItem ITEM = GWT.create(ListItem.class);
@@ -54,6 +58,16 @@ public class LabWorklistView extends WorklistView {
     @UiField
     HTMLPanel list;
 
+    private final ClickHandler itemClick = new ClickHandler() {
+        
+        @Override
+        public void onClick(ClickEvent event) {
+            log.info("Item click");
+            gotoInterpretLabResults();
+ 
+            
+        }
+    };
     private final TapHandler itemTap = new TapHandler() {
 
         @Override
@@ -131,13 +145,16 @@ public class LabWorklistView extends WorklistView {
         for (int i = 0; i < labWorklists.length(); i++) {
             final LabWorklist labWorklist = labWorklists.get(i);
             final SafeHtml html =
-                    ITEM.template(labWorklist.avatar(), labWorklist.patientDisplayString(), labWorklist.patGenderAgeDobMrn(),
+                    ITEM.template(UriUtils.fromTrustedString(labWorklist.avatar()), labWorklist.patientDisplayString(), labWorklist.patGenderAgeDobMrn(),
                             labWorklist.resultName());
-            final TouchPanel panel = new TouchPanel();
+            final TouchPanel panel = new TouchPanel();            
             panel.addTapHandler(itemTap);
             panel.addLongTapHandler(itemLongTap);
             panel.addSwipeEndHandler(itemSwipe);
-            panel.add(new HTML(html));
+            panel.addStyleName("swipe");
+            final HTML widget = new HTML(html);
+            widget.addClickHandler(itemClick);
+            panel.add(widget);
             list.add(panel);
         }
 

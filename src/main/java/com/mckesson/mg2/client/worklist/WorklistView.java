@@ -36,41 +36,50 @@ public abstract class WorklistView extends NavMenuView {
     @UiField public InlineHTML tabOtherDocuments;
     @UiField public InlineHTML tabERX;
     
-    protected void gotoLabWorklistView() {
+    public static void gotoLabWorklistView() {
         log.info("gotoLabWorklistView()");
         // clicked tab
         clear();
         RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
     }
-    protected void gotoSignOrdersView() {
+    public static void gotoSignOrdersView() {
         log.info("gotoSignOrdersView()");
         // clicked tab
         clear();
         RootPanel.get().add((Widget) GWT.create(SignOrdersView.class));        
     }
-    protected void gotoImagingView() {
+    public static void gotoImagingView() {
         log.info("gotoImagingView()");
         // clicked tab
         clear();
         RootPanel.get().add((Widget) GWT.create(ImagingView.class));        
     }
-    protected void gotoReviewNotesView() {
+    public static void gotoReviewNotesView() {
         log.info("gotoReviewNotesView()");
         // clicked tab
         clear();
         RootPanel.get().add((Widget) GWT.create(ReviewNotesView.class));        
     }
-    protected void gotoOtherDocumentsView() {
+    public static void gotoOtherDocumentsView() {
         log.info("gotoOtherDocumentsView()");
         // clicked tab
         clear();
         RootPanel.get().add((Widget) GWT.create(OtherDocumentsView.class));        
     }
-    protected void gotoERXView() {
+    public static void gotoERXView() {
         log.info("gotoERXView()");
         // clicked tab
         clear();
         RootPanel.get().add((Widget) GWT.create(ERXView.class));        
+    }
+    /**
+     * 
+     */
+    public static void gotoTransferProvider() {
+        log.info("gotoTransferProvider()");
+        // clicked tab
+        clear();
+        RootPanel.get().add((Widget) GWT.create(TransferProviderView.class));        
     }
     /*
      * (non-Javadoc)

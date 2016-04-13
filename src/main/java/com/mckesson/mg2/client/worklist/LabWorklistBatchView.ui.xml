@@ -21,12 +21,14 @@
 		.header {
 			color: white;		
 			background-color: #005a8c;	
-			padding: 0.5em;
+			padding: 5px 10px 0 10px;
 			flex: 2 0 auto;
-			height: 1.5em;
+			height: 30px;
+			font-family: arial;
+    		font-size: 24px;
 		}
 		.mid {
-			flex: auto;
+			flex: auto;		
 		}
 		.footer {
 			--paper-toolbar-background: #005a8c;
@@ -48,50 +50,42 @@
 			justify-content: space-between;		    			
 		}
 		.selectLeft {
+			padding-left: 3em;
 		}
 		.selectCenter {
 		}
 		.selectRight {
-		}
-		.tabs {
-			overflow: hidden;
-			width: 150%;
-		
-		}
-		.tab {
-			margin: 0.5em;
-			flex-grow: 0;
-			white-space: nowrap;
-		}
-		.tab_selected {
-			font-weight: bold;
-			text-decoration: underline;
-			
+			padding-right: 3em;
 		}
 		/* list */
-        iron-list {
-            background-color: var(--paper-grey-200, #eee);
-            padding-bottom: 16px;
-        }
+		.mid {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			overflow-x: scroll;
+		}
         .mid .item {
+        
             @apply(--layout-horizontal);
-            margin: 16px 16px 0 16px;
-            padding: 10px;
-            border-radius: 8px;
+            margin: 0;
+            padding: 0;
+            border-radius: 0;
             background-color: white;
-            border: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            font-family: arial;
         }
         .mid .avatar {
-            height: 40px;
-            width: 40px;
+            height: 80px;
+            width: 80px;
             border-radius: 20px;
             box-sizing: border-box;
             background-color: #DDD;
         }
         .mid .pad {
-            padding: 0 16px;
+            padding: 0 5px 0 10px;
  			@apply(--layout-flex);
             @apply(--layout-vertical);
+            margin: 5px 0;
          }
         .mid .primary {
             font-size: 16px;
@@ -103,29 +97,37 @@
         .mid .dim {
             color: gray;
         }
+ 		
+		.overlayLeft {
+			position: absolute;
+			height: 30px;
+			width: 40px;
+			left: 0;
+			background: -moz-linear-gradient(right,  rgba(0,90,140,0) 0%, rgba(0,90,140,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(right,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to left,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+
+		.overlayRight {
+			position: absolute;
+			height: 30px;
+			width: 40px;
+			right: 0;
+			background: -moz-linear-gradient(left,  rgba(0,90,140,0) 0%, rgba(0,90,140,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+		/** floating action button aka FAB**/ 
  		.fab {
 			position: fixed;
 			bottom: 80px;
 			right: 30px; 			
  		}
         </style>        
-    	<div class="header">Labs</div>
-    	<div class="selectHeader"><span class="selectLeft">1 selected</span><span class="selectFiller"></span><span class="selectRight">Cancel</span></div>
- 		<i:IronList ui:field="list" as="item" addStyleNames="mid" multiSelection='true' selectionEnabled='true' name="labworklist-mid"  >
-			<template>
-				<div>
-                    <div class="item">
-                    		   <iron-icon icon="[[item.selectionIcon]]"></iron-icon>
-		                       <img class="avatar" src="[[item.avatar]]"/>
-		                       <div class="pad">
-		                           <div class="primary">[[item.patientDisplayString]]</div>
-		                           <div class="secondary">[[item.resultName]]</div>
-		                        <div class="secondary dim">[[item.reviewStatus]]</div>
-		                       </div>
-		                   </div>
-	                  </div>
-		           </template>
-		</i:IronList>
+    	<div class="header">Transfer Labs</div>
+    	<div class="selectHeader"><span class="selectLeft"><g:InlineLabel ui:field="selectedCounter"></g:InlineLabel> selected</span><span class="selectFiller"></span><g:InlineLabel ui:field="cancelButton" addStyleNames="selectRight">Cancel</g:InlineLabel></div>
+ 		<g:HTMLPanel ui:field="list" addStyleNames="mid"> 		
+ 		</g:HTMLPanel>
  		<p:PaperToolbar  addStyleNames="footer"  name="labworklist-foot" >
 			<p:PaperIconButton ui:field="navPatient" src="images/navPatient.png" ariaLabel="Patient Search" title="Patient Search"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navWorklist" src="images/navWorklist.png" ariaLabel="Worklists" title="Worklists"></p:PaperIconButton>			
@@ -133,6 +135,10 @@
 			<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
         </p:PaperToolbar>
-		<p:PaperFab addStyleNames="fab" icon="arrow-forward" title="arrow-forward" tabindex="0"></p:PaperFab>		
+		<p:PaperFab ui:field="fab" addStyleNames="fab" icon="arrow-forward" title="arrow-forward" tabindex="0"></p:PaperFab>
+		<p:PaperBadge ui:field="fabBadge" icon="add" for="FAB"></p:PaperBadge>
+		<p:PaperToast ui:field="toast1" text="Cancelling select mode."/>		
+		<p:PaperToast ui:field="toast2" text="Transferring labs to..."/>		
+		<p:PaperToast ui:field="toast3" text="Please select one or more labs to transfer"/>		
  	</g:HTMLPanel>
 </ui:UiBinder> 
