@@ -12,6 +12,7 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.InlineHTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.patient.InterpretLabResultsView;
 import com.mckesson.mg2.client.patient.NavMenuView;
 import com.mckesson.mg2.client.utils.MG2Log;
 
@@ -72,6 +73,26 @@ public abstract class WorklistView extends NavMenuView {
         clear();
         RootPanel.get().add((Widget) GWT.create(ERXView.class));        
     }
+    /**
+     * 
+     */
+    public static void gotoInterpretLabResults() {
+        log.info("gotoInterpretLabResults()");
+        clear();
+        // clicked tab
+        final InterpretLabResultsView newView = GWT.create(InterpretLabResultsView.class);
+        RootPanel.get().add(newView);
+    }
+
+    public static void gotoLabWorklistBatchView() {
+        log.info("gotoLabWorklistBatchView()");
+        // clicked tab
+        final LabWorklistBatchView newView = GWT.create(LabWorklistBatchView.class);
+        clear();
+        RootPanel.get().add(newView);
+    }
+
+
     /**
      * 
      */

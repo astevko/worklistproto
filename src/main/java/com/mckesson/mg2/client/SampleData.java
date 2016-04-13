@@ -806,5 +806,132 @@ public class SampleData {
 ]
 
     }-*/ ;
+
+    public static class Provider extends JavaScriptObject {
+        protected Provider() {
+        };
+        public final native int userId() /*-{
+                return this.userId;
+            }-*/;
+
+        public final native String last() /*-{
+            return this.lastName;
+        }-*/;
+
+        public final native String first() /*-{
+            return this.firstName;
+        }-*/;
+
+    }
+
+    public static native JsArray<Provider> getProviders() /*-{
+        return [{
+            "userId" : 45892,
+            "lastName" : "Chakraborty",
+            "firstName" : "Abhishek  "
+        }
+    , {
+            "userId" : 5315,
+            "lastName" : "Adams",
+            "firstName" : "Chad  "
+        }
+    , {
+            "userId" : 26277,
+            "lastName" : "Shrestha",
+            "firstName" : "Aakar  "
+        }
+    , {
+            "userId" : 6235,
+            "lastName" : "Austin",
+            "firstName" : "Michael C. "
+        }
+    , {
+            "userId" : 9495,
+            "lastName" : "Chapman",
+            "firstName" : "Matt  "
+        }
+    , {
+            "userId" : 46097,
+            "lastName" : "physician",
+            "firstName" : "harmit  "
+        }
+    , {
+            "userId" : 35958,
+            "lastName" : "Zzsingh",
+            "firstName" : "harmit  "
+        }
+    , {
+            "userId" : 81,
+            "lastName" : "Graham",
+            "firstName" : "Lauren  "
+        }
+    , {
+            "userId" : 40255,
+            "lastName" : "Havaldar",
+            "firstName" : "Manasi  "
+        }
+    , {
+            "userId" : 241,
+            "lastName" : "Moore",
+            "firstName" : "Michael B. "
+        }
+    , {
+            "userId" : 801,
+            "lastName" : "Dar",
+            "firstName" : "Muhammad L. "
+        }
+    , {
+            "userId" : 9355,
+            "lastName" : "zzHemani",
+            "firstName" : "zMuhammad  "
+        }
+    , {
+            "userId" : 5155,
+            "lastName" : "MockClinic",
+            "firstName" : "RN/Pharm  "
+        }
+    , {
+            "userId" : 1001,
+            "lastName" : "Moore",
+            "firstName" : "Michael B. "
+        }
+    , {
+            "userId" : 5775,
+            "lastName" : "Mucher",
+            "firstName" : "Zachary  "
+        }
+    , {
+            "userId" : 5317,
+            "lastName" : "Planchard",
+            "firstName" : "Cindy  "
+        }
+    , {
+            "userId" : 13336,
+            "lastName" : "Seiden",
+            "firstName" : "Michael  "
+        }
+    , {
+            "userId" : 7235,
+            "lastName" : "MDAlpha2-01",
+            "firstName" : "G2 T. "
+        }
+    , {
+            "userId" : 7275,
+            "lastName" : "MDAlpha2-02",
+            "firstName" : "G2 U. "
+        }
+    , {
+            "userId" : 7315,
+            "lastName" : "MDAlpha2-03",
+            "firstName" : "G2 U. "
+        }
+    , {
+            "userId" : 5915,
+            "lastName" : "Willen",
+            "firstName" : "Michael A. "
+        }    
+]
+                
+    }-*/ ;
     
 }

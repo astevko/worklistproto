@@ -1,12 +1,123 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
-	<ui:style>
-	/* Add CSS here. See the GWT docs on UI Binder for more details */
-	</ui:style>
-	<g:HTMLPanel>
-		<!-- Add GWT widgets here. Enter < and hit Ctrl-Space to auto-complete 
-			widget names. The ui:field attribute binds an element to a field in the owner 
-			class. See the GWT docs on UI Binder for more details. -->
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:i='urn:import:com.vaadin.polymer.iron.widget'
+    xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
+	xmlns:v='urn:import:com.vaadin.polymer.vaadin.widget'
+	>
+	
+	<g:HTMLPanel ui:field="view" styleName="view">
+       <style is="custom-style" include="iron-flex iron-flex-alignment">
+		.view {
+			background-color: #ffffff;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			overflow:hidden;
+								
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;		
+		}
+		.header {
+			color: white;		
+			background-color: #005a8c;	
+			padding: 5px 10px 0 10px;
+			flex: 2 0 auto;
+			height: 30px;
+			font-family: arial;
+    		font-size: 24px;
+		}
+		.mid {
+			flex: auto;		
+		}
+		.footer {
+			--paper-toolbar-background: #005a8c;
+		}
+		.header2 {
+			width: 100%;
+			flex: 4 0 auto;
+			height: 2.5em;
+
+		    background: #005a8c;
+		    color: white;
+		    font-family: verdana;
+		    font-size: 0.8em;
+		    border-top: 1px solid #3078A2;
+		    
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;		    			
+		}
+		.header2Left {
+			padding-left: 3em;
+		}
+		.header2Center {
+		}
+		.header2Right {
+			padding-right: 3em;
+		}
+		/* list */
+		.mid {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			overflow-x: scroll;
+		}
+        .mid .item {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			
+			padding: 0.5em;
+        }
+        .mid .selected {
+        	font-weight: bold;
+        	background: grey;	/* TODO fix highlight color */
+        }
+ 		.item .left {
+ 			 
+ 		}
+ 		.item .right {
+ 		
+ 		}
+		.overlayLeft {
+			position: absolute;
+			height: 30px;
+			width: 40px;
+			left: 0;
+			background: -moz-linear-gradient(right,  rgba(0,90,140,0) 0%, rgba(0,90,140,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(right,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to left,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+
+		.overlayRight {
+			position: absolute;
+			height: 30px;
+			width: 40px;
+			right: 0;
+			background: -moz-linear-gradient(left,  rgba(0,90,140,0) 0%, rgba(0,90,140,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+		/** floating action button aka FAB**/ 
+ 		.fab {
+			position: fixed;
+			bottom: 80px;
+			right: 30px; 			
+ 		}
+        </style>        
+    	<div class="header">Transfer Lab</div>
+    	<div class="header2"> 
+    		<span><iron-icon icon="search"></iron-icon><input class="header2Left" type="search" id="query" autocomplete="off" placeholder="Search Providers"/></span>
+    		<span class="headerCenter"></span>
+    		<g:InlineLabel ui:field="cancelButton" addStyleNames="header2Right">Cancel</g:InlineLabel>
+   		</div>
+		<g:HTMLPanel ui:field="list" addStyleNames="mid"></g:HTMLPanel>
+		<p:PaperToast ui:field="toast1" text="Cancelling select mode."/>		
+		<p:PaperToast ui:field="toast2" text="Transferring labs to..."/>		
+		<p:PaperToast ui:field="toast3" text="Please select a Provider."/>		
 	</g:HTMLPanel>
 </ui:UiBinder> 

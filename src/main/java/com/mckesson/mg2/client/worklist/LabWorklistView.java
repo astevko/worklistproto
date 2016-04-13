@@ -99,26 +99,6 @@ public class LabWorklistView extends WorklistView {
         log.info("LabWorklistView()");
         populateList(SampleData.getLabWorklists());
     }
-
-    /**
-     * 
-     */
-    protected void gotoInterpretLabResults() {
-        log.info("gotoInterpretLabResults()");
-        clear();
-        // clicked tab
-        final InterpretLabResultsView newView = GWT.create(InterpretLabResultsView.class);
-        RootPanel.get().add(newView);
-    }
-
-    protected void gotoLabWorklistBatchView() {
-        log.info("gotoLabWorklistBatchView()");
-        // clicked tab
-        final LabWorklistBatchView newView = GWT.create(LabWorklistBatchView.class);
-        clear();
-        RootPanel.get().add(newView);
-    }
-
     /*
      * (non-Javadoc)
      * @see com.mckesson.mg2.client.worklist.WorkliskView#initWidget(com.google.gwt.user.client.ui.Widget)
