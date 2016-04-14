@@ -69,6 +69,14 @@ public class PatientSearchView extends NavMenuView {
             public void onClick(ClickEvent event) {
                 gotoPatientSearchView();
             }
-        });    
+        });
+        list.addClickHandler(new ClickHandler() {
+            
+            @Override
+            public void onClick(ClickEvent event) {
+                log.info("Item click");
+                PatientView.gotoLabResultsView();
+            }
+        });
     }
 }

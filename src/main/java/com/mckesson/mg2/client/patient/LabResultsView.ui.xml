@@ -1,0 +1,228 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+	/* Add CSS here. See the GWT docs on UI Binder for more details */
+	</ui:style>
+	<g:HTMLPanel ui:field="view" styleName="view">
+       <style is="custom-style" include="iron-flex iron-flex-alignment">
+		.view {
+			background-color: #ffffff;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			overflow:hidden;
+								
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			justify-content: space-between;
+		}
+		.header {
+			color: white;		
+			padding: 5px 10px 0 10px;
+			flex: 2 0 auto;
+			font-family: arial;
+    		font-size: 24px;
+    	
+    		display: flex;
+    		flex-direction: row;
+    		flex-wrap: nowrap;
+    		justify-content: space-between;
+    		align-items:stretch;
+    			
+            background-color: white;
+    		
+		}
+		.header .avatar {
+            height: 40px;
+            width: 40px;
+            border-radius: 20px;
+            box-sizing: border-box;
+            background-color: #DDD;
+		
+		}
+		.header .pad {
+            padding: 0 16px;
+    		display: flex;
+    		flex-direction: column;
+    		flex-wrap: nowrap;
+    		justify-content: space-around;
+    		align-items:stretch;
+		
+		}
+		.header .primary {
+            font-size: 16px;
+            font-weight: bold;
+		}
+		.header .secondary {
+			font-size: 14px;
+		}
+		.header .dim {
+			color: gray;
+		}
+		.tabs_outer {
+			width: 100%;
+			overflow-x: scroll;
+			flex: 4 0 auto;
+			height: 30px;
+
+		    background: #005a8c;
+		    color: white;
+		    font-family: verdana;
+		    font-size: 12px;
+		    border-top: 1px solid #3078A2;			
+		}
+		.tabs {
+			overflow: hidden;
+			width: 150%;
+		
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: flex-start;
+		}
+		.tab {
+			margin: 7px 10px;
+			flex-grow: 0;
+			white-space: nowrap;
+			font-size: 14px;
+    		font-family: arial;
+		}
+		.tab_selected {
+			font-weight: bold;
+			border-bottom: 2px solid #f60;
+		}
+		
+		.mid {
+			flex: auto;		
+			
+		}
+		.footer {
+			background: #005a8c;
+		    color: white;
+		    font-family: verdana;
+		    font-size: 0.8em;
+		    border-top: 1px solid #3078A2;
+			
+			display:flex;
+			flex-direction: row;
+			align-content: stretch;
+			width: 100%;			
+		}
+		.footer span {
+			text-align: center;
+			width: 33%;
+		}
+		.footer div {
+			align: center;
+			text-align: center;
+		}
+		.header2 {
+			width: 100%;
+			flex: 4 0 auto;
+			height: 2.5em;
+
+		    background: #005a8c;
+		    color: white;
+		    font-family: verdana;
+		    font-size: 0.8em;
+		    border-top: 1px solid #3078A2;
+		    
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;		    			
+		}
+		.header2Left {
+			padding-left: 3em;
+		}
+		.header2Center {
+		}
+		.header2Right {
+			padding-right: 3em;
+		}
+		/* list */
+		.mid {
+			display: flex;
+			flex-direction: column;
+			align-items: stretch;
+			overflow-x: scroll;
+		}
+        .mid .item {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			
+			padding: 0.5em;
+        }
+        .mid .selected {
+        	font-weight: bold;
+        	background: grey;	/* TODO fix highlight color */
+        }
+ 		.item .left {
+ 			 
+ 		}
+ 		.item .right {
+ 		
+ 		}
+		.overlayLeft {
+			position: absolute;
+			height: 30px;
+			width: 40px;
+			left: 0;
+			background: -moz-linear-gradient(right,  rgba(0,90,140,0) 0%, rgba(0,90,140,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(right,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to left,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+
+		.overlayRight {
+			position: absolute;
+			height: 30px;
+			width: 40px;
+			right: 0;
+			background: -moz-linear-gradient(left,  rgba(0,90,140,0) 0%, rgba(0,90,140,1) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(left,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to right,  rgba(0,90,140,0) 0%,rgba(0,90,140,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		}
+        </style>        
+    	<div class="header">
+    		<iron-icon icon="chevron-left"></iron-icon>
+    		<g:Image ui:field="patientPhoto" addStyleNames="avatar" url="images/001.jpg"/>
+    		<span class="pad">
+	    		<g:Label ui:field="name"         addStyleNames="primary" text="first name"/>
+	    		<g:Label ui:field="patientInfo"  addStyleNames="secondary" text="secondary"/>
+    		</span>
+   		</div>
+ 		<div class="tabs_outer">
+ 			<div class="overlayLeft">&nbsp;</div>
+ 			<div class="overlayRight">&nbsp;</div>
+	 		<div class="tabs">
+	 			<g:InlineHTML ui:field="tabNotes"  addStyleNames="tab">Notes</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabLabResults" addStyleNames="tab tab_selected">Results</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabProblems"  addStyleNames="tab">Problems</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabAttachments"  addStyleNames="tab">Attachments</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabMedications"  addStyleNames="tab">Medications</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabAllergies"  addStyleNames="tab">Allergies</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabContactInfo"  addStyleNames="tab">Contact Info</g:InlineHTML>
+	 			<g:InlineHTML ui:field="tabProfilePhoto"  addStyleNames="tab">Profile Photo</g:InlineHTML>
+	 		</div>
+ 		</div>
+		<g:HTMLPanel ui:field="list" addStyleNames="mid"></g:HTMLPanel>
+		<div class="footer">
+			<g:InlineHTML ui:field="navTransfer">
+				<iron-icon icon="arrow-forward"></iron-icon>
+				<div>Transfer</div>
+			</g:InlineHTML>
+			<g:InlineHTML ui:field="navSendMessage">
+				<iron-icon icon="mail"></iron-icon>
+				<div>Send Message</div>
+			</g:InlineHTML>
+			<g:InlineHTML ui:field="navReview">
+				<iron-icon icon="create"></iron-icon>
+				<div>Review</div>
+			</g:InlineHTML>
+		</div>
+	</g:HTMLPanel>
+</ui:UiBinder> 

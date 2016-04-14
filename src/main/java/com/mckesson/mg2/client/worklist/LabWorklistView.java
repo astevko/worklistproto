@@ -27,6 +27,7 @@ import com.googlecode.mgwt.ui.client.widget.touch.TouchPanel;
 import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.SampleData.LabWorklist;
 import com.mckesson.mg2.client.patient.InterpretLabResultsView;
+import com.mckesson.mg2.client.patient.PatientView;
 import com.mckesson.mg2.client.utils.MG2Log;
 
 /**
@@ -63,9 +64,7 @@ public class LabWorklistView extends WorklistView {
         @Override
         public void onClick(ClickEvent event) {
             log.info("Item click");
-            gotoInterpretLabResults();
- 
-            
+            PatientView.gotoLabResultsView();
         }
     };
     private final TapHandler itemTap = new TapHandler() {
@@ -73,7 +72,7 @@ public class LabWorklistView extends WorklistView {
         @Override
         public void onTap(final TapEvent event) {
             log.info("Item tap");
-            gotoInterpretLabResults();
+            PatientView.gotoLabResultsView();
         }
     };
 
