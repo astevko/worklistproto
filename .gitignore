@@ -3,3 +3,4 @@
 *.symbolMap
 *.jar
 WEB-INF/*
+*.txt
