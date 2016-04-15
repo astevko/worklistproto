@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 import com.googlecode.gwtphonegap.client.PhoneGap;
@@ -149,6 +148,6 @@ public class WorklistProto implements EntryPoint {
      * 
      */
     protected void startApplication() {
-        mainView.gotoView((Widget) GWT.create(LoginView.class));        
+        mainView.gotoView((LoginView) GWT.create(LoginView.class));        
     }
 }

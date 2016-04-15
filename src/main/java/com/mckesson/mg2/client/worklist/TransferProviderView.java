@@ -111,7 +111,18 @@ public class TransferProviderView extends Composite {
         }
 
     }
-
+    protected Provider findProviderById(String itemId) {
+        JsArray<Provider> providers = SampleData.getProviders();
+        for (int i = 0; i < providers.length(); i++) {
+            Provider p = providers.get(i);
+            if (itemId.equals(p.userId())) {
+                return p;
+            }                    
+        }
+        return null;
+    }
+    
+    
     class SelectTapHandler implements TapHandler {
 
         final String itemId;
@@ -161,8 +172,12 @@ public class TransferProviderView extends Composite {
      * @param itemId itemId to select
      */
     private void performTransfer(String itemId) {
-        toast1.show();
-        WorklistView.gotoLabWorklistView();
+        String msg = "Lab transferred";
+        Provider p = findProviderById(itemId);
+        if (p != null ) { 
+            msg = " to " + p.last() + ", " + p.first();
+        }
+        WorklistView.gotoLabWorklistView( msg );
     }
     
     boolean isSelectedItem(final String itemId) {

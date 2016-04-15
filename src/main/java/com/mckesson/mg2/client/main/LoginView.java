@@ -10,11 +10,11 @@ import com.google.gwt.resources.client.CssResource;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.patient.PatientSearchView;
+import com.mckesson.mg2.client.patient.ToastedView;
 import com.vaadin.polymer.paper.widget.PaperButton;
 
 /**
@@ -23,7 +23,7 @@ import com.vaadin.polymer.paper.widget.PaperButton;
  * @author efdj6eb
  *
  */
-public class LoginView extends Composite {
+public class LoginView extends ToastedView {
 
     private static LoginViewUiBinder uiBinder = GWT.create(LoginViewUiBinder.class);
 
@@ -48,6 +48,8 @@ public class LoginView extends Composite {
                 MainView.get().gotoView((PatientSearchView) GWT.create(PatientSearchView.class), "Please select Worklist");
             }
         });
+        
+        this.toastMessage = "Use any login for this prototype";
     }
 }
     

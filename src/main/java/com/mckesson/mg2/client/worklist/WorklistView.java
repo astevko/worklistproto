@@ -25,6 +25,11 @@ import com.mckesson.mg2.client.utils.MG2Log;
 public abstract class WorklistView extends NavMenuView {
     
     /**
+     * 
+     */
+    private static final String SELECT_LABS_TO_TRANSFER_PROVIDERS = "Select labs to transfer providers.";
+    private static final String EDGE_OF_PROTOTYPE = "You have reached the edge of this prototype.";
+    /**
      * logger
      */
     static final MG2Log log = new MG2Log(WorklistView.class);
@@ -38,41 +43,50 @@ public abstract class WorklistView extends NavMenuView {
     @UiField public InlineHTML tabOtherDocuments;
     @UiField public InlineHTML tabERX;
     
+    /**
+     * 
+     */
     public static void gotoLabWorklistView() {
         log.info("gotoLabWorklistView()");
+        mainView.gotoView((LabWorklistView) GWT.create(LabWorklistView.class));
+        
+    }
+    public static void gotoLabWorklistView(String msg) {
+        log.info("gotoLabWorklistView(" + msg 
+                + ")");
         // clicked tab
         
-        mainView.gotoView((Widget) GWT.create(LabWorklistView.class));        
+        mainView.gotoView((LabWorklistView) GWT.create(LabWorklistView.class), msg);        
     }
     public static void gotoSignOrdersView() {
         log.info("gotoSignOrdersView()");
         // clicked tab
         
-        mainView.gotoView((Widget) GWT.create(SignOrdersView.class));        
+        mainView.gotoView((SignOrdersView) GWT.create(SignOrdersView.class), EDGE_OF_PROTOTYPE);        
     }
     public static void gotoImagingView() {
         log.info("gotoImagingView()");
         // clicked tab
         
-        mainView.gotoView((ImagingView) GWT.create(ImagingView.class), "You haved reached the end of the internet.");        
+        mainView.gotoView((ImagingView) GWT.create(ImagingView.class), EDGE_OF_PROTOTYPE);        
     }
     public static void gotoReviewNotesView() {
         log.info("gotoReviewNotesView()");
         // clicked tab
         
-        mainView.gotoView((Widget) GWT.create(ReviewNotesView.class));        
+        mainView.gotoView((ReviewNotesView) GWT.create(ReviewNotesView.class), EDGE_OF_PROTOTYPE);        
     }
     public static void gotoOtherDocumentsView() {
         log.info("gotoOtherDocumentsView()");
         // clicked tab
         
-        mainView.gotoView((Widget) GWT.create(OtherDocumentsView.class));        
+        mainView.gotoView((OtherDocumentsView) GWT.create(OtherDocumentsView.class), EDGE_OF_PROTOTYPE);        
     }
     public static void gotoERXView() {
         log.info("gotoERXView()");
         // clicked tab
         
-        mainView.gotoView((Widget) GWT.create(ERXView.class));        
+        mainView.gotoView((ERXView) GWT.create(ERXView.class), EDGE_OF_PROTOTYPE);        
     }
     /**
      * 
@@ -90,7 +104,7 @@ public abstract class WorklistView extends NavMenuView {
         // clicked tab
         final LabWorklistBatchView newView = GWT.create(LabWorklistBatchView.class);
         
-        mainView.gotoView(newView);
+        mainView.gotoView(newView, WorklistView.SELECT_LABS_TO_TRANSFER_PROVIDERS);
     }
 
 

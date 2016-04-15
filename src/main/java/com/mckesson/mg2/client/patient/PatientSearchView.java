@@ -53,7 +53,7 @@ public class PatientSearchView extends NavMenuView {
         initWidget(uiBinder.createAndBindUi(this));
         
         list.setItems(SampleData.getPatients());
-        
+        this.toastMessage = "Please select Worklist";
     }
     
     /* (non-Javadoc)

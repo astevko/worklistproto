@@ -116,6 +116,7 @@
     		<g:InlineLabel ui:field="cancelButton" addStyleNames="header2Right">Cancel</g:InlineLabel>
    		</div>
 		<g:HTMLPanel ui:field="list" addStyleNames="mid"></g:HTMLPanel>
+		<p:PaperToast ui:field="toast"/>		
 		<p:PaperToast ui:field="toast1" text="Cancelling select mode."/>		
 		<p:PaperToast ui:field="toast2" text="Transferring labs to..."/>		
 		<p:PaperToast ui:field="toast3" text="Please select a Provider."/>		

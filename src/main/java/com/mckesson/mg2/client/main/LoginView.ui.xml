@@ -61,5 +61,7 @@
 			<p:PaperInput label="Password"  required="true" type="password"></p:PaperInput>
 			<p:PaperButton ui:field="loginButton" raised="true" class="loginButtonStyle">Log in</p:PaperButton>
 		</div>
+		<p:PaperToast ui:field="toast"></p:PaperToast>
+		
 	</g:HTMLPanel>
 </ui:UiBinder> 

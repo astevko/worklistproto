@@ -8,19 +8,17 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.utils.MG2Log;
 import com.mckesson.mg2.client.worklist.LabWorklistView;
 import com.vaadin.polymer.paper.widget.PaperIconButton;
-import com.vaadin.polymer.paper.widget.PaperToast;
 
 /**
  * @author efdj6eb
  */
-abstract public class NavMenuView extends Composite {
+abstract public class NavMenuView extends ToastedView {
     /**
      * logger
      */
@@ -40,9 +38,6 @@ abstract public class NavMenuView extends Composite {
     @UiField
     public PaperIconButton navHamburgerMenu;
 
-    @UiField
-    public PaperToast toast;
-    
     private static MainView mainView = MainView.get();
   
     public static void gotoCalendarView() {
@@ -119,5 +114,4 @@ abstract public class NavMenuView extends Composite {
         // main menu hamburger
 
     }
-
 }
