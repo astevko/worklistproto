@@ -17,6 +17,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.SampleData.Patient;
 import com.mckesson.mg2.client.worklist.WorklistView;
+import com.vaadin.polymer.iron.widget.IronIcon;
 
 /**
  * @author efdj6eb
@@ -29,9 +30,26 @@ public class LabResultsView extends PatientView {
     interface LabResultsViewUiBinder extends UiBinder<Widget, LabResultsView> {
     }
 
+    @UiField IronIcon back;
     @UiField Image patientPhoto;
     @UiField Label name;
     @UiField Label patientInfo;
+    
+//    @UiField String context;
+//    @UiField String labDate;
+//    @UiField String title;
+//    @UiField String date1;
+//    @UiField String result1name;
+//    @UiField String result1value;
+//    @UiField String result2name;
+//    @UiField String result2value;
+//    @UiField String result3name;
+//    @UiField String result3value;
+//    @UiField String result4name;
+//    @UiField String result4value;
+//    @UiField String result5name;
+//    @UiField String result5value;
+    
     @UiField InlineHTML navTransfer;
     @UiField InlineHTML navSendMessage;
     @UiField InlineHTML navReview;
@@ -46,7 +64,14 @@ public class LabResultsView extends PatientView {
     @Override
     protected void initWidget(Widget widget) {        
         super.initWidget(widget);
-        
+        back.addClickHandler(new ClickHandler() {
+            
+            @Override
+            public void onClick(ClickEvent event) {
+                log.info("back click");
+                WorklistView.gotoLabWorklistView();
+            }
+        });
         navTransfer.addClickHandler(new ClickHandler() {
             
             @Override
@@ -111,6 +136,15 @@ public class LabResultsView extends PatientView {
         Patient patient = SampleData.getPatients().get(0);
 //        patientPhoto.setUrl(patient.avatar());
         name.setText(patient.name());
-        patientInfo.setText( "MRN:&nbsp;" + patient.mrn() + ",&nbspDOB:&nbsp;" + patient.dob());        
+        StringBuffer str = new StringBuffer();
+        if (!patient.mrn().isEmpty()) {
+            str.append("MRN:").append(patient.mrn());            
+        }
+        if (!patient.dob().isEmpty()) {
+            str.append(" DOB:").append(patient.dob());
+        }
+        patientInfo.setText( "MRN:&nbsp;" + patient.mrn() + ",&nbspDOB:&nbsp;" + patient.dob());
+        
+        
     }
 }

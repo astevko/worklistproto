@@ -974,7 +974,7 @@ public class SampleData {
         public final native String conceptName() /*-{
 			return this.conceptName;
         }-*/;
-        public final native String resultDates() /*-{
+        public final native String resultDate() /*-{
 			return this.resultDates[0];
         }-*/;
 

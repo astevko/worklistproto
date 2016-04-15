@@ -30,6 +30,17 @@
 		.mid {
 			flex: auto;		
 		}
+		.lab1 {
+			background-color: rgb(239, 130, 0);
+			color: white;
+			
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			align-items: stretch;
+			justify-content: space-between;		
+			
+		}
 		.footer {
 			--paper-toolbar-background: #005a8c;
 		}
