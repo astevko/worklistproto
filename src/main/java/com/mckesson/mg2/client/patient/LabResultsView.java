@@ -94,7 +94,7 @@ public class LabResultsView extends PatientView {
             @Override
             public void onClick(ClickEvent event) {
                 log.info("click navSendMessage");
-                WorklistView.gotoTransferProvider();     //TODO replace
+//                WorklistView.gotoTransferProvider();     //TODO replace
             }
         });
         navSendMessage.addTouchEndHandler(new TouchEndHandler() {
@@ -102,7 +102,7 @@ public class LabResultsView extends PatientView {
             @Override
             public void onTouchEnd(TouchEndEvent event) {
                 log.info("tap navSendMessage");
-                WorklistView.gotoTransferProvider();    //TODO replace
+//                WorklistView.gotoTransferProvider();    //TODO replace
                 
             }
         });
@@ -111,7 +111,7 @@ public class LabResultsView extends PatientView {
             @Override
             public void onClick(ClickEvent event) {
                 log.info("click navReview");
-                WorklistView.gotoTransferProvider();     //TODO replace
+//                WorklistView.gotoTransferProvider();     //TODO replace
             }
         });
         navReview.addTouchEndHandler(new TouchEndHandler() {
@@ -119,7 +119,7 @@ public class LabResultsView extends PatientView {
             @Override
             public void onTouchEnd(TouchEndEvent event) {
                 log.info("tap navReview");
-                WorklistView.gotoTransferProvider();     //TODO replace
+//                WorklistView.gotoTransferProvider();     //TODO replace
                 
             }
         });
