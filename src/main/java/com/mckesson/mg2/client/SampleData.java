@@ -28,10 +28,16 @@ public class SampleData {
 			return this.gender;
         }-*/;
         public final native String dob() /*-{
-			return this.dob;
+            if (this.dob)
+                return this.dob;
+            else 
+                return "";
         }-*/;
         public final native String mrn() /*-{
-			return this.mrn;
+            if (this.mrn)
+			    return this.mrn;
+			else
+			    return "";
         }-*/;
         public final native int age() /*-{
 			return this.age;
