@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
@@ -41,6 +40,8 @@ public class WorklistProto implements EntryPoint {
     
     PhoneGap phoneGap;
     EventBus eventBus;
+
+    private MainView mainView;
     
     /**
      * This is the entry point method.
@@ -62,6 +63,7 @@ public class WorklistProto implements EntryPoint {
         // load dependency injection
         eventBus = GWT.create(SimpleEventBus.class);
         phoneGap = GWT.create(PhoneGap.class);
+        mainView = MainView.get();
         
         // when phonegap is ready, start polymer
         phoneGap.addHandler(new PhoneGapAvailableHandler() {
@@ -147,7 +149,6 @@ public class WorklistProto implements EntryPoint {
      * 
      */
     protected void startApplication() {
-        RootPanel.get().add((Widget) GWT.create(LoginView.class));
-        
+        mainView.gotoView((Widget) GWT.create(LoginView.class));        
     }
 }

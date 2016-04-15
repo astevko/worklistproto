@@ -7,8 +7,8 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.InlineHTML;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.utils.MG2Log;
 
 /**
@@ -37,8 +37,8 @@ public abstract class PatientView extends Composite {
      * 
      */
     public static void gotoLabResultsView() {
-        RootPanel.get().clear();
-        RootPanel.get().add((Widget) GWT.create(LabResultsView.class)); 
+        
+        MainView.get().gotoView((Widget) GWT.create(LabResultsView.class)); 
     }
 
 }

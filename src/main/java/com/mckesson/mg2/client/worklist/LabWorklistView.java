@@ -15,7 +15,6 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
@@ -26,7 +25,6 @@ import com.googlecode.mgwt.dom.client.recognizer.swipe.SwipeEndHandler;
 import com.googlecode.mgwt.ui.client.widget.touch.TouchPanel;
 import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.SampleData.LabWorklist;
-import com.mckesson.mg2.client.patient.InterpretLabResultsView;
 import com.mckesson.mg2.client.patient.PatientView;
 import com.mckesson.mg2.client.utils.MG2Log;
 

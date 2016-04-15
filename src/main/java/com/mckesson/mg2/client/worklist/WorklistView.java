@@ -10,8 +10,8 @@ import com.google.gwt.event.dom.client.TouchEndEvent;
 import com.google.gwt.event.dom.client.TouchEndHandler;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.InlineHTML;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.patient.InterpretLabResultsView;
 import com.mckesson.mg2.client.patient.NavMenuView;
 import com.mckesson.mg2.client.utils.MG2Log;
@@ -28,7 +28,8 @@ public abstract class WorklistView extends NavMenuView {
      * logger
      */
     static final MG2Log log = new MG2Log(WorklistView.class);
-    
+
+    private static MainView mainView = MainView.get();    
     
     @UiField public InlineHTML tabLabResults;
     @UiField public InlineHTML tabSignOrders;
@@ -40,56 +41,56 @@ public abstract class WorklistView extends NavMenuView {
     public static void gotoLabWorklistView() {
         log.info("gotoLabWorklistView()");
         // clicked tab
-        clear();
-        RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));        
+        
+        mainView.gotoView((Widget) GWT.create(LabWorklistView.class));        
     }
     public static void gotoSignOrdersView() {
         log.info("gotoSignOrdersView()");
         // clicked tab
-        clear();
-        RootPanel.get().add((Widget) GWT.create(SignOrdersView.class));        
+        
+        mainView.gotoView((Widget) GWT.create(SignOrdersView.class));        
     }
     public static void gotoImagingView() {
         log.info("gotoImagingView()");
         // clicked tab
-        clear();
-        RootPanel.get().add((Widget) GWT.create(ImagingView.class));        
+        
+        mainView.gotoView((Widget) GWT.create(ImagingView.class));        
     }
     public static void gotoReviewNotesView() {
         log.info("gotoReviewNotesView()");
         // clicked tab
-        clear();
-        RootPanel.get().add((Widget) GWT.create(ReviewNotesView.class));        
+        
+        mainView.gotoView((Widget) GWT.create(ReviewNotesView.class));        
     }
     public static void gotoOtherDocumentsView() {
         log.info("gotoOtherDocumentsView()");
         // clicked tab
-        clear();
-        RootPanel.get().add((Widget) GWT.create(OtherDocumentsView.class));        
+        
+        mainView.gotoView((Widget) GWT.create(OtherDocumentsView.class));        
     }
     public static void gotoERXView() {
         log.info("gotoERXView()");
         // clicked tab
-        clear();
-        RootPanel.get().add((Widget) GWT.create(ERXView.class));        
+        
+        mainView.gotoView((Widget) GWT.create(ERXView.class));        
     }
     /**
      * 
      */
     public static void gotoInterpretLabResults() {
         log.info("gotoInterpretLabResults()");
-        clear();
+        
         // clicked tab
         final InterpretLabResultsView newView = GWT.create(InterpretLabResultsView.class);
-        RootPanel.get().add(newView);
+        mainView.gotoView(newView);
     }
 
     public static void gotoLabWorklistBatchView() {
         log.info("gotoLabWorklistBatchView()");
         // clicked tab
         final LabWorklistBatchView newView = GWT.create(LabWorklistBatchView.class);
-        clear();
-        RootPanel.get().add(newView);
+        
+        mainView.gotoView(newView);
     }
 
 
@@ -99,8 +100,8 @@ public abstract class WorklistView extends NavMenuView {
     public static void gotoTransferProvider() {
         log.info("gotoTransferProvider()");
         // clicked tab
-        clear();
-        RootPanel.get().add((Widget) GWT.create(TransferProviderView.class));        
+        
+        mainView.gotoView((Widget) GWT.create(TransferProviderView.class));        
     }
     /*
      * (non-Javadoc)

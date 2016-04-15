@@ -10,8 +10,8 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.utils.MG2Log;
 
 /**
@@ -50,8 +50,7 @@ public class MessageView extends Composite {
             
             @Override
             public void onClick(ClickEvent event) {
-                RootPanel.get().clear();
-                RootPanel.get().add((Widget) GWT.create(PatientSearchView.class));
+                MainView.get().gotoView((Widget) GWT.create(PatientSearchView.class));
             }
         });
     }

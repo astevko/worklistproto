@@ -167,5 +167,6 @@
 			<p:PaperIconButton ui:field="navCalendar" src="images/navCalendar.png" ariaLabel="Calendar" title="Calendar"></p:PaperIconButton>			
 			<p:PaperIconButton ui:field="navHamburgerMenu" src="images/navHamburgerMenu.png" ariaLabel="Nav More" title="Nav More"></p:PaperIconButton>			
         </p:PaperToolbar>
+        <p:PaperToast ui:field="toast"></p:PaperToast>
  	</g:HTMLPanel>
 </ui:UiBinder> 

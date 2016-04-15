@@ -10,11 +10,12 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.utils.MG2Log;
 import com.mckesson.mg2.client.worklist.LabWorklistView;
 import com.vaadin.polymer.paper.widget.PaperIconButton;
+import com.vaadin.polymer.paper.widget.PaperToast;
 
 /**
  * @author efdj6eb
@@ -39,37 +40,36 @@ abstract public class NavMenuView extends Composite {
     @UiField
     public PaperIconButton navHamburgerMenu;
 
-    public static void clear() {
-        log.info("clear view");
-        RootPanel.get().clear();
-    }
-
+    @UiField
+    public PaperToast toast;
+    
+    private static MainView mainView = MainView.get();
+  
     public static void gotoCalendarView() {
         log.info("gotoCalendarView()");
-        clear();
+
         // clicked search button forces search view reset
-        RootPanel.get().add((Widget) GWT.create(CalendarView.class));
+        mainView.gotoView((Widget) GWT.create(CalendarView.class));
     }
 
     public static void gotoMessageView() {
         log.info("gotoMessageView()");
-        clear();
+
         // clicked search button forces search view reset
-        RootPanel.get().add((Widget) GWT.create(MessageView.class));
+        mainView.gotoView((Widget) GWT.create(MessageView.class));
     }
 
     public static void gotoPatientSearchView() {
         log.info("gotoPatientSearchView()");
-        clear();
         // clicked search button forces search view reset
-        RootPanel.get().add((Widget) GWT.create(PatientSearchView.class));
+        mainView.gotoView((Widget) GWT.create(PatientSearchView.class));
     }
 
     public static void gotoWorklistView() {
         log.info("gotoWorklistView()");
-        clear();
+
         // clicked search button forces search view reset
-        RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));
+        mainView.gotoView((Widget) GWT.create(LabWorklistView.class));
     }
 
     /*

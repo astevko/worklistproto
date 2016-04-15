@@ -140,5 +140,6 @@
 		<p:PaperToast ui:field="toast1" text="Cancelling select mode."/>		
 		<p:PaperToast ui:field="toast2" text="Transferring labs to..."/>		
 		<p:PaperToast ui:field="toast3" text="Please select one or more labs to transfer"/>		
+        <p:PaperToast ui:field="toast"></p:PaperToast>
  	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -12,10 +12,9 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.patient.PatientSearchView;
-import com.mckesson.mg2.client.worklist.LabWorklistView;
 import com.vaadin.polymer.paper.widget.PaperButton;
 
 /**
@@ -45,9 +44,8 @@ public class LoginView extends Composite {
         loginButton.addClickHandler(new ClickHandler() {
             
             public void onClick(ClickEvent event) {
-                RootPanel.get().clear();
-                RootPanel.get().add((Widget) GWT.create(PatientSearchView.class));
-//                RootPanel.get().add((Widget) GWT.create(LabWorklistView.class));
+                
+                MainView.get().gotoView((PatientSearchView) GWT.create(PatientSearchView.class), "Please select Worklist");
             }
         });
     }

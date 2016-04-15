@@ -29,7 +29,7 @@
     		font-size: 24px;
 		}
 		.mid {
-			flex: auto;		
+			flex: auto;
 		}
 		.footer {
 			--paper-toolbar-background: #005a8c;
