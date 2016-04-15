@@ -22,6 +22,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.googlecode.mgwt.dom.client.event.tap.TapEvent;
 import com.googlecode.mgwt.dom.client.event.tap.TapHandler;
 import com.googlecode.mgwt.ui.client.widget.touch.TouchPanel;
+import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.SampleData.Provider;
 import com.mckesson.mg2.client.utils.MG2Log;
@@ -89,7 +90,7 @@ public class TransferProviderView extends Composite {
             public void onClick(ClickEvent event) {
                 log.info("click cancel");
                 toast1.toggle();
-                WorklistView.gotoLabWorklistBatchView();
+                MainView.get().gotoBack();
             }
         });
     }

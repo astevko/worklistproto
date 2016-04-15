@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.InlineHTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.MainView;
 import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.SampleData.Patient;
 import com.mckesson.mg2.client.worklist.WorklistView;
@@ -69,7 +70,8 @@ public class LabResultsView extends PatientView {
             @Override
             public void onClick(ClickEvent event) {
                 log.info("back click");
-                WorklistView.gotoLabWorklistView();
+//                WorklistView.gotoLabWorklistView();
+                MainView.get().gotoBack();
             }
         });
         navTransfer.addClickHandler(new ClickHandler() {
@@ -94,6 +96,8 @@ public class LabResultsView extends PatientView {
             @Override
             public void onClick(ClickEvent event) {
                 log.info("click navSendMessage");
+                toast.setText("Send Message under construction");
+                toast.show();
 //                WorklistView.gotoTransferProvider();     //TODO replace
             }
         });
@@ -102,6 +106,8 @@ public class LabResultsView extends PatientView {
             @Override
             public void onTouchEnd(TouchEndEvent event) {
                 log.info("tap navSendMessage");
+                toast.setText("Send Message under construction");
+                toast.show();
 //                WorklistView.gotoTransferProvider();    //TODO replace
                 
             }
@@ -111,6 +117,8 @@ public class LabResultsView extends PatientView {
             @Override
             public void onClick(ClickEvent event) {
                 log.info("click navReview");
+                toast.setText("Review Lab under construction");
+                toast.show();
 //                WorklistView.gotoTransferProvider();     //TODO replace
             }
         });
@@ -119,6 +127,8 @@ public class LabResultsView extends PatientView {
             @Override
             public void onTouchEnd(TouchEndEvent event) {
                 log.info("tap navReview");
+                toast.setText("Review Lab under construction");
+                toast.show();
 //                WorklistView.gotoTransferProvider();     //TODO replace
                 
             }

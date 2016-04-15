@@ -17,6 +17,8 @@ import com.googlecode.gwtphonegap.client.event.OnlineEvent;
 import com.googlecode.gwtphonegap.client.event.OnlineHandler;
 import com.googlecode.mgwt.ui.client.MGWT;
 import com.googlecode.mgwt.ui.client.MGWTSettings;
+import com.googlecode.mgwt.ui.client.widget.animation.Animation;
+import com.googlecode.mgwt.ui.client.widget.animation.Animations;
 import com.mckesson.mg2.client.main.LoginView;
 import com.mckesson.mg2.client.utils.AppStatusEvent;
 import com.mckesson.mg2.client.utils.AppStatusLevel;
@@ -148,6 +150,6 @@ public class WorklistProto implements EntryPoint {
      * 
      */
     protected void startApplication() {
-        mainView.gotoView((LoginView) GWT.create(LoginView.class));        
+        mainView.gotoView((LoginView) GWT.create(LoginView.class), Animations.POP);        
     }
 }

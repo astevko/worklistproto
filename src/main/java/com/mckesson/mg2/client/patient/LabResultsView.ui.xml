@@ -263,5 +263,6 @@
 				<div>Review</div>
 			</g:InlineHTML>
 		</div>
+		<p:PaperToast ui:field="toast"></p:PaperToast>
 	</g:HTMLPanel>
 </ui:UiBinder> 
