@@ -6,7 +6,7 @@
 	>
 	
 	<g:HTMLPanel ui:field="view" styleName="view">
-        <style is="custom-style" include="iron-flex iron-flex-alignment">
+        <style is="custom-style" include="iron-flex iron-flex-alignment ">
 		.view {
 			background-color: #ffffff;
 			width: 100%;

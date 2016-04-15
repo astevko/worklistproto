@@ -4,8 +4,13 @@
 package com.mckesson.mg2.client.worklist;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.MainView;
+import com.vaadin.polymer.paper.widget.PaperButton;
 
 /**
  * @author efdj6eb
@@ -33,4 +38,22 @@ public class ERXView extends WorklistView {
         initWidget(uiBinder.createAndBindUi(this));
     }
 
+    @UiField  PaperButton endoftheinternet;
+    
+    /* (non-Javadoc)
+     * @see com.mckesson.mg2.client.worklist.WorklistView#initWidget(com.google.gwt.user.client.ui.Widget)
+     */
+    @Override
+    protected void initWidget(Widget widget) {
+        
+        super.initWidget(widget);
+        
+        endoftheinternet.addClickHandler(new ClickHandler() {
+            
+            @Override
+            public void onClick(ClickEvent event) {
+               WorklistView.gotoLabWorklistView();
+            }
+        });
+    }
 }

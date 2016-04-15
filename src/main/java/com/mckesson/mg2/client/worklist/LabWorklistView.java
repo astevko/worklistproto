@@ -22,6 +22,7 @@ import com.googlecode.mgwt.dom.client.recognizer.longtap.LongTapEvent;
 import com.googlecode.mgwt.dom.client.recognizer.longtap.LongTapHandler;
 import com.googlecode.mgwt.dom.client.recognizer.swipe.SwipeEndEvent;
 import com.googlecode.mgwt.dom.client.recognizer.swipe.SwipeEndHandler;
+import com.googlecode.mgwt.dom.client.recognizer.swipe.SwipeEvent.DIRECTION;
 import com.googlecode.mgwt.ui.client.widget.touch.TouchPanel;
 import com.mckesson.mg2.client.SampleData;
 import com.mckesson.mg2.client.SampleData.LabWorklist;
@@ -86,8 +87,13 @@ public class LabWorklistView extends WorklistView {
 
         @Override
         public void onSwipeEnd(final SwipeEndEvent event) {
-            log.info("item swipe");
-            gotoLabWorklistBatchView();
+            DIRECTION dir = event.getDirection();
+            log.info("item swipe " + dir + " "  + event.getDistance() + " px");
+            if (DIRECTION.LEFT_TO_RIGHT.equals(dir) || DIRECTION.RIGHT_TO_LEFT.equals(dir) && event.getDistance() > 100 ) {
+                gotoLabWorklistBatchView();
+            } else {
+                log.info("swipe handler ignoring up/down/too short swipe");
+            }
         }
     };
 

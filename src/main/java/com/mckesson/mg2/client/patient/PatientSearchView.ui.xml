@@ -5,7 +5,7 @@
     xmlns:p='urn:import:com.vaadin.polymer.paper.widget'
 	>
 	<g:HTMLPanel ui:field="view" styleName="view">
-		<style  is="custom-style">
+		<style  is="custom-style"  include="iron-flex iron-flex-alignment">
 		.view {
 			background-color: #ffffff;
 			width: 100%;
@@ -26,15 +26,10 @@
 		}
 		.footer {
 			--paper-toolbar-background: #005a8c;
-			flex: 0 1 auto;
+			flex: 0 1 auto;			
 		}
-		.footer paper-toolbar {
-			--paper-toolbar-background: #005a8c;
-		}
-		.footer #topBar {
-			@apply(--layout-fit);
-			@apply(--layout-horizontal);
-			justify-content: space-between;			
+		.footer div {
+			justify-content: space-around;
 		}
 		/* header */
 		.textbox {

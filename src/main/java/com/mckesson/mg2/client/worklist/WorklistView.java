@@ -54,7 +54,7 @@ public abstract class WorklistView extends NavMenuView {
         log.info("gotoImagingView()");
         // clicked tab
         
-        mainView.gotoView((Widget) GWT.create(ImagingView.class));        
+        mainView.gotoView((ImagingView) GWT.create(ImagingView.class), "You haved reached the end of the internet.");        
     }
     public static void gotoReviewNotesView() {
         log.info("gotoReviewNotesView()");

@@ -3,9 +3,12 @@
  */
 package com.mckesson.mg2.client;
 
+import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.Window.ClosingEvent;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mckesson.mg2.client.patient.NavMenuView;
 import com.vaadin.polymer.paper.widget.PaperToast;
 
 /**
@@ -29,6 +32,14 @@ public class MainView {
         this.rootPanel = RootPanel.get();
         this.toast = new PaperToast();        
         rootPanel.add(this.toast);
+        
+        Window.addWindowClosingHandler(new Window.ClosingHandler() {
+
+            @Override
+            public void onWindowClosing(final ClosingEvent event) {
+                event.setMessage("Do you want to end the prototype?");
+            }
+        });
     }
     
     public static MainView get() {
@@ -38,11 +49,10 @@ public class MainView {
         return singleton;
     }
     
-    public void gotoView( Composite panel, String toastMsg ) {
+    public void gotoView( NavMenuView panel, String toastMsg ) {
         gotoView(panel);
-        
-        toast.setText(toastMsg);
-        toast.show();
+        panel.toast.setText(toastMsg);
+        panel.toast.show();
     }
 
     /**
